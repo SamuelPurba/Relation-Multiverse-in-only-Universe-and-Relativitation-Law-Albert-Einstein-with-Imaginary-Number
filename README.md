@@ -187,6 +187,5 @@ py -3 build_docs.py
 ---
 
 <p align="center">
-  <strong>© 2026 Samuel Hasiholan Omega, S. Tr. T. — All Rights Reserved.</strong><br>
-  <em>Politeknik Negeri Batam & BeruangLaut.ID Research Group</em>
+  <strong>© 2026 Samuel Hasiholan Omega, S. Tr. T. — All Rights Reserved.</strong>
 </p>
