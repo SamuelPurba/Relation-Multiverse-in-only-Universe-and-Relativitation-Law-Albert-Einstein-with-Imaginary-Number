@@ -43,7 +43,7 @@ SECTIONS = [
     ]),
     
     ("II. MATHEMATICAL FRAMEWORK OF COMPLEX SPACETIME METRIC g<sub>μν</sub>(z)", [
-        ("TEXT", "We represent coordinates as complex quantities z<sup>μ</sup> = x<sup>μ</sup> + i y<sup>μ</sup> in ℂ<sup>4</sup>, where x<sup>μ</sup> represents observable physical dimensions and y<sup>μ</sup> represents internal imaginary dimensions."),
+        ("TEXT", "We represent spacetime coordinates as complex quantities z<sup>μ</sup> = x<sup>μ</sup> + i y<sup>μ</sup> in ℂ<sup>4</sup>. Intuitively, spacetime is unified into a single 4-dimensional complex manifold M<sub>C</sub> = M<sub>R</sub> ⊕ i M<sub>I</sub> with real topological dimension dim<sub>R</sub> = 8, where parallel universes correspond to orthogonal phase projections of a single continuous geometry."),
         ("TEXT", "The complex spacetime metric tensor is expressed as a Hermitian tensor:"),
         ("FORMULA", "g<sub>μν</sub>(z) = Re(g<sub>μν</sub>(z)) + i Im(g<sub>μν</sub>(z))", "(2)"),
         ("TEXT", "where metric Hermiticity requires g<sub>μν</sub> = ḡ<sub>νμ</sub>. The complex line element is:"),

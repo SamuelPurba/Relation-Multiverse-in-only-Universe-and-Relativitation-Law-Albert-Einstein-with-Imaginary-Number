@@ -86,7 +86,9 @@ graph TD
 ---
 
 #### **Teorema 1 (Unifikasi Topologi Multiverse ke Manifold Kompleks $\mathcal{M}_{\mathbb{C}}$)**
-> **Pernyataan Teorema**: Diberikan kontinuum multiverse yang terdiri dari domain ruang-waktu 4D. Seluruh kontinuum dapat dipetakan secara bijektif dan isometrik ke dalam satu manifold kompleks 4-dimensi $\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}}$ dengan dimensi topologi real $\text{dim}_{\mathbb{R}} = 8$.
+> **Pernyataan Teorema (Penjelasan Humanize)**: Secara intuitif dan akademis, ruang-waktu kita tidak lagi dipandang sebagai lembaran 4-dimensi real yang terisolasi $\mathcal{M}_{\mathbb{R}}$, melainkan disatukan secara elegan ke dalam **Manifold Kompleks 4-Dimensi ($\mathcal{M}_{\mathbb{C}}$)** melalui struktur penjumlahan langsung:
+> $$\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}} \qquad (\text{dim}_{\mathbb{R}} = 8)$$
+> Struktur ini menggabungkan 4 dimensi terobservasi $\mathcal{M}_{\mathbb{R}}$ dan 4 dimensi fase imajiner internal $i \mathcal{M}_{\mathbb{I}}$, secara keseluruhan membentuk ruang topologi berdimensi 8 real ($\text{dim}_{\mathbb{R}} = 8$). Seluruh alam semesta sejajar dalam hipotesis multiverse terbukti hanyalah irisan sudut fase ortogonal ($\theta \in [0, 2\pi)$) dari satu continuum geometri kompleks tunggal.
 
 **Bukti Matematika Formal**:
 Sesuai dekomposisi variabel koordinat kompleks $z^\mu = x^\mu + i y^\mu \in \mathbb{C}^4$:
