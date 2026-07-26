@@ -17,7 +17,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
 PAPER_TITLE = "Unification of Multiverse Topology into a Single Complex Manifold: Reformulation of Einstein's General Relativity via Imaginary Spacetime Dimensions and Complexized Energy-Momentum Tensors"
-AUTHORS = "Samuel Hasiholan Omega, S. Tr. T.<br/>Politeknik Negeri Batam & Founder BeruangLaut.ID"
+AUTHORS = "Samuel Hasiholan Omega, S. Tr. T.<br/>Politeknik Negeri Batam & Founder : BeruangLaut.ID"
 
 ABSTRACT_TEXT = (
     "In standard modern cosmology, the multiverse concept often relies on physically disconnected spacetime domains "
