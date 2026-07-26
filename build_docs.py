@@ -3,7 +3,7 @@
 Human-Authored IEEE Transactions Research Paper Generator
 Author: Samuel Hasiholan Omega, S. Tr. T.
 Title: Unification of Multiverse Topology into a Single Complex Manifold
-Format: IEEE Standard + Human Language Academic Prose by Samuel Hasiholan Omega, S. Tr. T.
+Format: IEEE Standard Document + True IEEE Mathematical Formatting + Human Language Prose
 """
 
 import os
@@ -17,75 +17,77 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
 PAPER_TITLE = "Unification of Multiverse Topology into a Single Complex Manifold: Reformulation of Einstein's General Relativity via Imaginary Spacetime Dimensions and Complexized Energy-Momentum Tensors"
-AUTHORS = "Samuel Hasiholan Omega, S. Tr. T.\nBeruangLaut.ID Quantum Gravity Research Group, IEEE Member"
+AUTHORS = "Samuel Hasiholan Omega, S. Tr. T.<br/>BeruangLaut.ID Quantum Gravity Research Group, IEEE Member"
 
 ABSTRACT_TEXT = (
     "In standard modern cosmology, the multiverse concept often relies on physically disconnected spacetime domains "
     "embedded within higher-dimensional space. In this paper, we show that parallel cosmic domains can be naturally "
-    "understood as phase slices of a single four-dimensional complex spacetime manifold M_C = M_R (+) i M_I. "
-    "By extending Einstein's metric tensor into complex space z^mu = x^mu + i y^mu, the metric assumes a Hermitian form "
-    "g_{mu nu}(z) = Re(g_{mu nu}) + i Im(g_{mu nu}). We prove that what appear to be separate parallel universes correspond "
-    "simply to orthogonal phase angles theta in [0, 2pi) within one continuous complex geometry. Reformulating the field equations "
-    "as G_{mu nu}(z) + Lambda g_{mu nu}(z) = (8pi G / c^4) T_{mu nu}(z) resolves spacetime singularities at black hole horizons "
+    "understood as phase slices of a single four-dimensional complex spacetime manifold <i>M</i><sub>C</sub> = <i>M</i><sub>R</sub> ⊕ <i>i M</i><sub>I</sub>. "
+    "By extending Einstein's metric tensor into complex space <i>z</i><sup>μ</sup> = <i>x</i><sup>μ</sup> + <i>i y</i><sup>μ</sup>, the metric assumes a Hermitian form "
+    "<i>g</i><sub>μν</sub>(<i>z</i>) = Re(<i>g</i><sub>μν</sub>) + <i>i</i> Im(<i>g</i><sub>μν</sub>). We prove that what appear to be separate parallel universes correspond "
+    "simply to orthogonal phase angles <i>θ</i> ∈ [0, 2π) within one continuous complex geometry. Reformulating the field equations "
+    "as <i>G</i><sub>μν</sub>(<i>z</i>) + Λ<i>g</i><sub>μν</sub>(<i>z</i>) = (8π<i>G</i> / <i>c</i><sup>4</sup>) <i>T</i><sub>μν</sub>(<i>z</i>) resolves spacetime singularities at black hole horizons "
     "and initial cosmic states, smoothly regularizing them at the Planck scale. Furthermore, the imaginary part of the metric "
-    "Im(g_00) naturally gives rise to dark energy acceleration and galactic rotation anomalies without requiring artificial scalar fields."
+    "Im(<i>g</i><sub>00</sub>) naturally gives rise to dark energy acceleration and galactic rotation anomalies without requiring artificial scalar fields."
 )
 
 KEYWORDS = "Complex General Relativity, Multiverse Unification, Imaginary Spacetime, Complex Manifolds, Dark Energy, Singularity Resolution."
 
+# Each element is (title, [paragraphs_or_formulas])
+# Format for formula tuples: ("FORMULA", "IEEE Math HTML string", "Equation Label")
 SECTIONS = [
     ("I. INTRODUCTION", [
-        "Albert Einstein's General Theory of Relativity revolutionized our understanding of gravity by describing spacetime as a four-dimensional curved pseudo-Riemannian manifold. The field equations, written as:",
-        "G_{mu nu} + Lambda g_{mu nu} = (8pi G / c^4) T_{mu nu}   (Eq. 1)",
-        "have passed every precision test from solar system tests to gravitational wave detections. However, general relativity faces two enduring challenges: the occurrence of infinite curvature singularities and the origin of dark energy.",
-        "Multiverse models attempt to address these questions by suggesting that our universe is one of many within a vast cosmic landscape. Yet, traditional models often introduce separate, disconnected universes that are difficult to test empirically.",
-        "In this work, we present a unified framework: the entire multiverse exists within a single complex spacetime manifold. By expressing coordinates as complex numbers z^mu = x^mu + i y^mu, parallel universes naturally emerge as phase projections of one coherent geometric continuum."
+        ("TEXT", "Albert Einstein's General Theory of Relativity revolutionized our understanding of gravity by describing spacetime as a four-dimensional curved pseudo-Riemannian manifold. The field equations, written in standard tensor notation as:"),
+        ("FORMULA", "G<sub>μν</sub> + Λg<sub>μν</sub> = (8πG / c<sup>4</sup>) T<sub>μν</sub>", "(1)"),
+        ("TEXT", "have passed every precision test from solar system tests to gravitational wave detections. However, general relativity faces two enduring challenges: the occurrence of infinite curvature singularities and the origin of dark energy."),
+        ("TEXT", "Multiverse models attempt to address these questions by suggesting that our universe is one of many within a vast cosmic landscape. Yet, traditional models often introduce separate, disconnected universes that are difficult to test empirically."),
+        ("TEXT", "In this work, we present a unified framework: the entire multiverse exists within a single complex spacetime manifold. By expressing coordinates as complex numbers z<sup>μ</sup> = x<sup>μ</sup> + i y<sup>μ</sup>, parallel universes naturally emerge as phase projections of one coherent geometric continuum.")
     ]),
     
     ("II. MATHEMATICAL FRAMEWORK OF COMPLEX SPACETIME MANIFOLDS", [
-        "We represent coordinates as complex quantities z^mu = x^mu + i y^mu in C^4, where x^mu represents observable physical dimensions and y^mu represents internal imaginary dimensions.",
-        "The complex spacetime metric tensor is expressed as a Hermitian tensor:",
-        "g_{mu nu}(z) = Re(g_{mu nu}(z)) + i Im(g_{mu nu}(z))   (Eq. 2)",
-        "where Hermiticity requires g_{mu nu} = conjugate(g_{nu mu}). The complex line element is:",
-        "ds^2 = g_{mu nu}(z) dz^mu d(z_bar)^nu   (Eq. 3)",
-        "The extended Christoffel symbols Gamma^lambda_{mu nu} govern affine connections on complex manifolds:",
-        "Gamma^lambda_{mu nu}(z) = (1/2) g^{lambda sigma} [ (d g_{sigma nu} / d z^mu) + (d g_{mu sigma} / d z^nu) - (d g_{mu nu} / d z^sigma) ]   (Eq. 4)",
-        "From these connections, the complex Riemann curvature tensor R^lambda_{mu nu sigma} is derived as:",
-        "R^lambda_{mu nu sigma} = (d Gamma^lambda_{mu sigma} / d z^nu) - (d Gamma^lambda_{mu nu} / d z^sigma) + Gamma^lambda_{kappa nu} Gamma^kappa_{mu sigma} - Gamma^lambda_{kappa sigma} Gamma^kappa_{mu nu}   (Eq. 5)"
+        ("TEXT", "We represent coordinates as complex quantities z<sup>μ</sup> = x<sup>μ</sup> + i y<sup>μ</sup> in ℂ<sup>4</sup>, where x<sup>μ</sup> represents observable physical dimensions and y<sup>μ</sup> represents internal imaginary dimensions."),
+        ("TEXT", "The complex spacetime metric tensor is expressed as a Hermitian tensor:"),
+        ("FORMULA", "g<sub>μν</sub>(z) = Re(g<sub>μν</sub>(z)) + i Im(g<sub>μν</sub>(z))", "(2)"),
+        ("TEXT", "where Hermiticity requires g<sub>μν</sub> = ḡ<sub>νμ</sub>. The complex line element is:"),
+        ("FORMULA", "ds<sup>2</sup> = g<sub>μν</sub>(z) dz<sup>μ</sup> dz̄<sup>ν</sup>", "(3)"),
+        ("TEXT", "The extended Christoffel symbols Γ<sup>λ</sup><sub>μν</sub> govern affine connections on complex manifolds:"),
+        ("FORMULA", "Γ<sup>λ</sup><sub>μν</sub>(z) = ½ g<sup>λσ</sup> [ (∂g<sub>σν</sub> / ∂z<sup>μ</sup>) + (∂g<sub>μσ</sub> / ∂z<sup>ν</sup>) - (∂g<sub>μν</sub> / ∂z<sup>σ</sup>) ]", "(4)"),
+        ("TEXT", "From these connections, the complex Riemann curvature tensor R<sup>λ</sup><sub>μνσ</sub> is derived as:"),
+        ("FORMULA", "R<sup>λ</sup><sub>μνσ</sub> = (∂Γ<sup>λ</sup><sub>μσ</sub> / ∂z<sup>ν</sup>) - (∂Γ<sup>λ</sup><sub>μν</sub> / ∂z<sup>σ</sup>) + Γ<sup>λ</sup><sub>κν</sub> Γ<sup>κ</sup><sub>μσ</sub> - Γ<sup>λ</sup><sub>κσ</sub> Γ<sup>κ</sup><sub>μν</sub>", "(5)")
     ]),
     
     ("III. IMAGINARY EINSTEIN FIELD EQUATIONS & SINGULARITY RESOLUTION", [
-        "Extending real partial derivatives to complex exterior derivatives gives the Imaginary Einstein Field Equations:",
-        "G_{mu nu}(z) + Lambda g_{mu nu}(z) = (8pi G / c^4) T_{mu nu}(z),   where z^mu = x^mu + i y^mu   (Eq. 6)",
-        "Smoothing Horizon Singularities:",
-        "In a standard Schwarzschild metric, the time metric component g_00 = -(1 - r_s/r) diverges as r approaches zero. Under complex coordinate extension r -> r + i epsilon (where epsilon is set to the Planck length l_P):",
-        "g_00(r + i epsilon) = - (1 - (r_s / (r + i epsilon))) = - (1 - (r_s r / (r^2 + epsilon^2))) - i (r_s epsilon / (r^2 + epsilon^2))   (Eq. 7)",
-        "As r approaches zero, the absolute magnitude of the metric component remains strictly bounded:",
-        "lim_{r -> 0} |g_00(i epsilon)| = sqrt( 1 + (r_s^2 / epsilon^2) ) < infinity   (Eq. 8)",
-        "This proves that complex coordinate extensions remove physical singularities, keeping curvature invariants finite everywhere."
+        ("TEXT", "Extending real partial derivatives to complex exterior derivatives gives the Imaginary Einstein Field Equations:"),
+        ("FORMULA", "G<sub>μν</sub>(z) + Λg<sub>μν</sub>(z) = (8πG / c<sup>4</sup>) T<sub>μν</sub>(z),   where z<sup>μ</sup> = x<sup>μ</sup> + i y<sup>μ</sup>", "(6)"),
+        ("TEXT", "Smoothing Horizon Singularities:"),
+        ("TEXT", "In a standard Schwarzschild metric, the time metric component g<sub>00</sub> = -(1 - r<sub>s</sub>/r) diverges as r approaches zero. Under complex coordinate extension r → r + i ε (where ε is set to the Planck length ℓ<sub>P</sub> = √(ħG / c<sup>3</sup>)):"),
+        ("FORMULA", "g<sub>00</sub>(r + i ε) = - ( 1 - (r<sub>s</sub>r / (r<sup>2</sup> + ε<sup>2</sup>)) ) - i ( r<sub>s</sub>ε / (r<sup>2</sup> + ε<sup>2</sup>) )", "(7)"),
+        ("TEXT", "As r approaches zero, the absolute magnitude of the metric component remains strictly bounded:"),
+        ("FORMULA", "lim<sub>r→0</sub> |g<sub>00</sub>(i ε)| = √( 1 + (r<sub>s</sub><sup>2</sup> / ε<sup>2</sup>) ) < ∞", "(8)"),
+        ("TEXT", "This proves that complex coordinate extensions remove physical singularities, keeping curvature invariants finite everywhere.")
     ]),
     
     ("IV. MULTIVERSE PHASE PROJECTION OPERATOR", [
-        "To describe observable universes from the complex continuum, we define the quantum phase projection operator P_theta:",
-        "P_theta = integral_0^{2pi} delta(theta - arg(z)) d theta   (Eq. 9)",
-        "An individual observable universe U_theta corresponds to a specific phase angle theta in [0, 2pi):",
-        "g_{mu nu}^{(theta)}(x) = Re( g_{mu nu}(x e^{i theta}) )   (Eq. 10)",
-        "Thus, different cosmic phases belong to one unified geometry rather than disjoint regions of space."
+        ("TEXT", "To describe observable universes from the complex continuum, we define the quantum phase projection operator P̂<sub>θ</sub>:"),
+        ("FORMULA", "P̂<sub>θ</sub> = ∫<sub>0</sub><sup>2π</sup> δ(θ - arg(z)) dθ", "(9)"),
+        ("TEXT", "An individual observable universe U<sub>θ</sub> corresponds to a specific phase angle θ in [0, 2π):"),
+        ("FORMULA", "g<sub>μν</sub><sup>(θ)</sup>(x) = Re( g<sub>μν</sub>(x e<sup>iθ</sup>) )", "(10)"),
+        ("TEXT", "Thus, different cosmic phases belong to one unified geometry rather than disjoint regions of space.")
     ]),
     
     ("V. COSMOLOGICAL IMPLICATIONS: DARK ENERGY & DARK MATTER", [
-        "Evaluating the imaginary part of the metric tensor Im(g_{mu nu}) reveals an intrinsic vacuum stress-energy density:",
-        "rho_{vacuum} = (c^4 / 8pi G) nabla^mu Im(g_{0 mu}) = rho_{dark energy}   (Eq. 11)",
-        "This natural vacuum contribution produces accelerated cosmic expansion matching the observed cosmological constant Lambda = 3 H_0^2 Omega_Lambda, offering a clear geometric explanation for dark energy."
+        ("TEXT", "Evaluating the imaginary part of the metric tensor Im(g<sub>μν</sub>) reveals an intrinsic vacuum stress-energy density:"),
+        ("FORMULA", "ρ<sub>vacuum</sub> = (c<sup>4</sup> / 8πG) ∇<sup>μ</sup> Im(g<sub>0μ</sub>) = ρ<sub>dark energy</sub>", "(11)"),
+        ("TEXT", "This natural vacuum contribution produces accelerated cosmic expansion matching the observed cosmological constant Λ = 3 H<sub>0</sub><sup>2</sup> Ω<sub>Λ</sub>, offering a clear geometric explanation for dark energy.")
     ]),
     
     ("VI. EMPIRICAL PREDICTIONS & EXPERIMENTAL VERIFICATION", [
-        "1. Gravitational Wave Ringdown Phase Shifts: Next-generation detectors like LISA and Einstein Telescope can search for small imaginary phase perturbations delta phi ~ 10^{-21} rad during binary black hole mergers.",
-        "2. Event Horizon Telescope Observations: High-resolution observations of event horizon shadows around M87* and Sgr A* may reveal subtle interference fringes matching the imaginary metric component."
+        ("TEXT", "1. Gravitational Wave Ringdown Phase Shifts: Next-generation detectors like LISA and Einstein Telescope can search for small imaginary phase perturbations δφ ~ 10<sup>-21</sup> rad during binary black hole mergers."),
+        ("TEXT", "2. Event Horizon Telescope Observations: High-resolution observations of event horizon shadows around M87* and Sgr A* may reveal subtle interference fringes matching the imaginary metric component.")
     ]),
     
     ("VII. CONCLUSION", [
-        "We have presented a clear, unified mathematical model demonstrating that the multiverse can be understood as phase projections of a single four-dimensional complex spacetime manifold. This approach resolves gravitational singularities while providing a geometric foundation for dark energy."
+        ("TEXT", "We have presented a clear, unified mathematical model demonstrating that the multiverse can be understood as phase projections of a single four-dimensional complex spacetime manifold. This approach resolves gravitational singularities while providing a geometric foundation for dark energy.")
     ])
 ]
 
@@ -98,7 +100,7 @@ REFERENCES = [
 ]
 
 def generate_pdf(filename="paper.pdf"):
-    print(f"Generating PDF authored by Samuel Hasiholan Omega, S. Tr. T.: {filename}...")
+    print(f"Generating PDF with IEEE Math Formatting: {filename}...")
     doc = SimpleDocTemplate(filename, pagesize=letter, leftMargin=54, rightMargin=54, topMargin=54, bottomMargin=54)
     styles = getSampleStyleSheet()
 
@@ -140,15 +142,15 @@ def generate_pdf(filename="paper.pdf"):
         spaceAfter=6
     )
     formula_style = ParagraphStyle(
-        'FormulaStyle',
+        'FormulaIEEE',
         parent=styles['Normal'],
-        fontName='Courier-Bold',
-        fontSize=9,
-        leading=13,
-        alignment=1,
-        textColor=colors.HexColor('#990000'),
-        spaceBefore=6,
-        spaceAfter=6
+        fontName='Times-Italic',
+        fontSize=10.5,
+        leading=15,
+        alignment=1, # Centered
+        textColor=colors.HexColor('#111111'),
+        spaceBefore=8,
+        spaceAfter=8
     )
     abstract_heading = ParagraphStyle(
         'AbstractHeading',
@@ -171,7 +173,7 @@ def generate_pdf(filename="paper.pdf"):
     story = []
     story.append(Paragraph(PAPER_TITLE, title_style))
     story.append(Spacer(1, 10))
-    story.append(Paragraph(AUTHORS.replace('\n', '<br/>'), author_style))
+    story.append(Paragraph(AUTHORS, author_style))
     story.append(Spacer(1, 12))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#003366'), spaceAfter=12))
 
@@ -183,13 +185,15 @@ def generate_pdf(filename="paper.pdf"):
     story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#BDC3C7'), spaceAfter=12))
 
     # Sections & Formulas
-    for title, paragraphs in SECTIONS:
+    for title, items in SECTIONS:
         story.append(Paragraph(title, heading_style))
-        for p_text in paragraphs:
-            if "Eq." in p_text or "lim_" in p_text or ("g_{" in p_text and "=" in p_text):
-                story.append(Paragraph(f"<b>{p_text}</b>", formula_style))
+        for item_type, text, *opt_label in [item if len(item)==3 else (item[0], item[1], "") for item in items]:
+            if item_type == "FORMULA":
+                label = opt_label[0] if opt_label else ""
+                formatted_formula = f"{text}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{label}</b>"
+                story.append(Paragraph(formatted_formula, formula_style))
             else:
-                story.append(Paragraph(p_text, body_style))
+                story.append(Paragraph(text, body_style))
 
     # References
     story.append(Spacer(1, 10))
@@ -198,10 +202,10 @@ def generate_pdf(filename="paper.pdf"):
         story.append(Paragraph(ref, body_style))
 
     doc.build(story)
-    print(f"[*] PDF authored by Samuel Hasiholan Omega, S. Tr. T. created successfully: {filename}")
+    print(f"[*] PDF created successfully with TRUE IEEE MATH FORMATTING: {filename}")
 
 def generate_docx(filename="paper.docx"):
-    print(f"Generating DOCX authored by Samuel Hasiholan Omega, S. Tr. T.: {filename}...")
+    print(f"Generating DOCX with IEEE Math Formatting: {filename}...")
     doc = Document()
 
     for section in doc.sections:
@@ -222,11 +226,12 @@ def generate_docx(filename="paper.docx"):
     # Authors
     p_author = doc.add_paragraph()
     p_author.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run_author = p_author.add_run(AUTHORS)
-    run_author.bold = True
-    run_author.font.size = Pt(10.5)
-    run_author.font.name = 'Arial'
-    run_author.font.color.rgb = RGBColor(0, 51, 102)
+    for line in AUTHORS.replace('<br/>', '\n').split('\n'):
+        r_a = p_author.add_run(line + '\n')
+        r_a.bold = True
+        r_a.font.size = Pt(10.5)
+        r_a.font.name = 'Arial'
+        r_a.font.color.rgb = RGBColor(0, 51, 102)
 
     # Abstract
     p_abs_head = doc.add_paragraph()
@@ -237,7 +242,9 @@ def generate_docx(filename="paper.docx"):
 
     p_abs_body = doc.add_paragraph()
     p_abs_body.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    r_abs_body = p_abs_body.add_run(ABSTRACT_TEXT)
+    # Clean HTML tags for DOCX
+    clean_abstract = ABSTRACT_TEXT.replace('<i>', '').replace('</i>', '').replace('<sub>', '').replace('</sub>', '').replace('<sup>', '').replace('</sup>', '')
+    r_abs_body = p_abs_body.add_run(clean_abstract)
     r_abs_body.italic = True
     r_abs_body.font.size = Pt(9.5)
 
@@ -251,25 +258,31 @@ def generate_docx(filename="paper.docx"):
     doc.add_paragraph("-" * 45)
 
     # Sections & Formulas
-    for title, paragraphs in SECTIONS:
+    for title, items in SECTIONS:
         p_sec = doc.add_paragraph()
         r_sec = p_sec.add_run(title)
         r_sec.bold = True
         r_sec.font.size = Pt(12)
         r_sec.font.color.rgb = RGBColor(0, 51, 102)
 
-        for p_text in paragraphs:
+        for item in items:
+            item_type = item[0]
+            text = item[1]
+            label = item[2] if len(item) > 2 else ""
+
             p_b = doc.add_paragraph()
-            if "Eq." in p_text or "lim_" in p_text or ("g_{" in p_text and "=" in p_text):
+            if item_type == "FORMULA":
                 p_b.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                r_b = p_b.add_run(p_text)
-                r_b.bold = True
-                r_b.font.size = Pt(10)
-                r_b.font.name = 'Courier New'
-                r_b.font.color.rgb = RGBColor(153, 0, 0)
+                clean_text = text.replace('<i>', '').replace('</i>', '').replace('<sub>', '').replace('</sub>', '').replace('<sup>', '').replace('</sup>', '').replace('&nbsp;', ' ')
+                r_b = p_b.add_run(f"{clean_text}        {label}")
+                r_b.italic = True
+                r_b.font.size = Pt(11)
+                r_b.font.name = 'Times New Roman'
+                r_b.font.color.rgb = RGBColor(17, 17, 17)
             else:
                 p_b.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-                r_b = p_b.add_run(p_text)
+                clean_text = text.replace('<i>', '').replace('</i>', '').replace('<sub>', '').replace('</sub>', '').replace('<sup>', '').replace('</sup>', '')
+                r_b = p_b.add_run(clean_text)
                 r_b.font.size = Pt(10.5)
                 r_b.font.name = 'Arial'
 
@@ -287,7 +300,7 @@ def generate_docx(filename="paper.docx"):
         r_r.font.name = 'Arial'
 
     doc.save(filename)
-    print(f"[*] DOCX authored by Samuel Hasiholan Omega, S. Tr. T. created successfully: {filename}")
+    print(f"[*] DOCX created successfully with TRUE IEEE MATH FORMATTING: {filename}")
 
 if __name__ == "__main__":
     generate_pdf("paper.pdf")
