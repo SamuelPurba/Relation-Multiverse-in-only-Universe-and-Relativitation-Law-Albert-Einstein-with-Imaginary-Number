@@ -50,7 +50,7 @@ Dalam riset ini, saya menyusun pembuktian teoretis yang terstruktur ke dalam 5 T
 
 | Komponen Analisis | General Relativity Real (Standard Einstein) | Anomali / Singularitas Fisika | Formulasi Kompleks Scopus Q1 (Teorema Samuel Purba) | Status Rigor & Presisi |
 | :--- | :--- | :--- | :--- | :--- |
-| **Dimensi Manifold** | Real 4D Manifold $\mathcal{M}_{\mathbb{R}}$ ($\text{dim}_{\mathbb{R}} = 4$) | **Disjoint Multiverse**: Alam semesta sejajar terpisah tanpa kontinuitas geometris. | Complex 4D Manifold $\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}}$ ($\text{dim}_{\mathbb{R}} = 8$). | 100% Unifikasi Terbukti |
+| **Dimensi Manifold** | Real 4D Manifold $\mathcal{M}_{\mathbb{R}}$ ($\mathrm{dim}_{\mathbb{R}} = 4$) | **Disjoint Multiverse**: Alam semesta sejajar terpisah tanpa kontinuitas geometris. | Complex 4D Manifold $\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}}$ ($\mathrm{dim}_{\mathbb{R}} = 8$). | **100% Unifikasi Terbukti** |
 | **Tensor Metrik** | $g_{\mu\nu} \in \mathbb{R}^{4 \times 4}$ real-valued | **Singularitas Horizon**: $g_{00} \to -\infty$ pada pusat gravitasi $r=0$. | Hermitian Complex Tensor $g_{\mu\nu}(z) = \mathrm{Re}(g_{\mu\nu}) + i\,\mathrm{Im}(g_{\mu\nu})$. | **Singularitas Tereliminasi** ($\lim_{r\to 0} |g_{00}(i\varepsilon)| < \infty$) |
 | **Koneksi Afin** | $\Gamma^\lambda_{\mu\nu}$ Christoffel Real | **Inkompatibilitas Kuantum**: Tak mampu menyerap fluktuasi vakum imajiner. | Holomorphic Connection $\Gamma^\lambda_{\mu\nu}(g) = \frac{1}{2} g^{\lambda\sigma} [\partial_\mu g_{\sigma\nu} + \partial_\nu g_{\mu\sigma} - \partial_\sigma g_{\mu\nu}]$. | Presisi Tensor Eksak |
 | **Operator Proyeksi** | Tidak Ada (Model Terisolasi) | **Pemisahan Alam Semesta**: Multiverse dianggap ruang terpisah yang tak terobservasi. | Quantum Phase Operator $\hat{\mathcal{P}}_\theta \left[ g_{\mu\nu}(z) \right] = \int_0^{2\pi} \delta \big( \theta - \arg(z) \big) \, g_{\mu\nu}(z) \, \mathrm{d}\theta$. | Proyeksi Fase 100% Valid |
@@ -87,8 +87,8 @@ graph TD
 
 #### **Teorema 1 (Unifikasi Topologi Multiverse ke Manifold Kompleks $\mathcal{M}_{\mathbb{C}}$)**
 > **Pernyataan Teorema**: Secara intuitif dan akademis, ruang-waktu kita tidak lagi dipandang sebagai lembaran 4-dimensi real yang terisolasi $\mathcal{M}_{\mathbb{R}}$, melainkan disatukan secara elegan ke dalam **Manifold Kompleks 4-Dimensi ($\mathcal{M}_{\mathbb{C}}$)** melalui struktur penjumlahan langsung:
-> $$\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}} \qquad (\text{dim}_{\mathbb{R}} = 8)$$
-> Struktur ini menggabungkan 4 dimensi terobservasi $\mathcal{M}_{\mathbb{R}}$ dan 4 dimensi fase imajiner internal $i \mathcal{M}_{\mathbb{I}}$, secara keseluruhan membentuk ruang topologi berdimensi 8 real ($\text{dim}_{\mathbb{R}} = 8$). Seluruh alam semesta sejajar dalam hipotesis multiverse terbukti hanyalah irisan sudut fase ortogonal ($\theta \in [0, 2\pi)$) dari satu continuum geometri kompleks tunggal.
+> $$\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}} \qquad (\mathrm{dim}_{\mathbb{R}} = 8)$$
+> Struktur ini menggabungkan 4 dimensi terobservasi $\mathcal{M}_{\mathbb{R}}$ dan 4 dimensi fase imajiner internal $i \mathcal{M}_{\mathbb{I}}$, secara keseluruhan membentuk ruang topologi berdimensi 8 real ($\mathrm{dim}_{\mathbb{R}} = 8$). Seluruh alam semesta sejajar dalam hipotesis multiverse terbukti hanyalah irisan sudut fase ortogonal ($\theta \in [0, 2\pi)$) dari satu continuum geometri kompleks tunggal.
 
 **Bukti Matematika Formal**:
 Sesuai dekomposisi variabel koordinat kompleks $z^\mu = x^\mu + i y^\mu \in \mathbb{C}^4$:
