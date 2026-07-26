@@ -10,7 +10,7 @@
 
 <p align="center">
   <strong>Publikasi Akademis Berstandar Scopus Q1 (Top Tier Journal Grade)</strong><br>
-  <em>Karya Orisinal: Samuel Hasiholan Omega, S. Tr. T.<br>Alumni Teknik Robotika & Kecerdasan Buatan (A . I), Politeknik Negeri Batam</em>
+  <em>Karya Orisinal: Samuel Hasiholan Omega, S. Tr. T.<br>Politeknik Negeri Batam & Founder BeruangLaut.ID</em>
 </p>
 
 <p align="center">
@@ -187,5 +187,6 @@ py -3 build_docs.py
 ---
 
 <p align="center">
-  <strong>© 2026 Samuel Hasiholan Omega, S. Tr. T. — All Rights Reserved.</strong>
+  <strong>© 2026 Samuel Hasiholan Omega, S. Tr. T. — All Rights Reserved.</strong><br>
+  <em>Politeknik Negeri Batam & Founder BeruangLaut.ID</em>
 </p>
