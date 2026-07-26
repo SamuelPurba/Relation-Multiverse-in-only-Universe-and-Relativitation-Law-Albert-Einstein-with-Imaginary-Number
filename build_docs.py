@@ -3,7 +3,7 @@
 Human-Authored IEEE Transactions Research Paper Generator
 Author: Samuel Hasiholan Omega, S. Tr. T.
 Title: Unification of Multiverse Topology into a Single Complex Manifold
-Format: IEEE Standard Document + Metric Tensor g_{mu nu} (g-Format Representation) + Human Language Prose
+Format: IEEE Standard Document + Explicit g_{mu nu}(z) Metric Notation + Human Language Prose
 """
 
 import os
@@ -24,14 +24,14 @@ ABSTRACT_TEXT = (
     "embedded within higher-dimensional space. In this paper, we show that parallel cosmic domains can be naturally "
     "understood as phase slices of a single four-dimensional complex spacetime manifold <i>M</i><sub>C</sub> = <i>M</i><sub>R</sub> ⊕ <i>i M</i><sub>I</sub>. "
     "By extending Einstein's metric tensor into complex space <i>z</i><sup>μ</sup> = <i>x</i><sup>μ</sup> + <i>i y</i><sup>μ</sup>, the metric assumes a Hermitian <i>g</i>-format "
-    "<i>g</i><sub>μν</sub>(<i>z</i>) = Re(<i>g</i><sub>μν</sub>) + <i>i</i> Im(<i>g</i><sub>μν</sub>). We prove that what appear to be separate parallel universes correspond "
+    "<i>g</i><sub>μν</sub>(<i>z</i>) = Re(<i>g</i><sub>μν</sub>(<i>z</i>)) + <i>i</i> Im(<i>g</i><sub>μν</sub>(<i>z</i>)). We prove that what appear to be separate parallel universes correspond "
     "simply to orthogonal phase angles <i>θ</i> ∈ [0, 2π) within one continuous complex geometry. Reformulating the field equations in metric <i>g</i>-format "
     "as <i>R</i><sub>μν</sub>(<i>g</i>) - ½ <i>g</i><sub>μν</sub><i>R</i>(<i>g</i>) + Λ<i>g</i><sub>μν</sub> = (8π<i>G</i> / <i>c</i><sup>4</sup>) <i>T</i><sub>μν</sub>(<i>g</i>) resolves spacetime singularities at black hole horizons "
     "and initial cosmic states, smoothly regularizing them at the Planck scale. Furthermore, the imaginary part of the metric "
     "Im(<i>g</i><sub>00</sub>) naturally gives rise to dark energy acceleration and galactic rotation anomalies without requiring artificial scalar fields."
 )
 
-KEYWORDS = "Complex General Relativity, Multiverse Unification, Imaginary Spacetime, Metric g-Format, Dark Energy, Singularity Resolution."
+KEYWORDS = "Complex General Relativity, Multiverse Unification, Imaginary Spacetime, Metric g_{mu nu}(z) Format, Dark Energy, Singularity Resolution."
 
 SECTIONS = [
     ("I. INTRODUCTION", [
@@ -39,14 +39,14 @@ SECTIONS = [
         ("FORMULA", "R<sub>μν</sub>(g) - ½ g<sub>μν</sub> R(g) + Λ g<sub>μν</sub> = (8πG / c<sup>4</sup>) T<sub>μν</sub>(g)", "(1)"),
         ("TEXT", "have passed every precision test from solar system tests to gravitational wave detections. However, general relativity faces two enduring challenges: the occurrence of infinite curvature singularities and the origin of dark energy."),
         ("TEXT", "Multiverse models attempt to address these questions by suggesting that our universe is one of many within a vast cosmic landscape. Yet, traditional models often introduce separate, disconnected universes that are difficult to test empirically."),
-        ("TEXT", "In this work, we present a unified framework: the entire multiverse exists within a single complex spacetime manifold. By expressing coordinates as complex numbers z<sup>μ</sup> = x<sup>μ</sup> + i y<sup>μ</sup>, parallel universes naturally emerge as phase projections of one coherent metric g<sub>μν</sub> geometry.")
+        ("TEXT", "In this work, we present a unified framework: the entire multiverse exists within a single complex spacetime manifold. By expressing coordinates as complex numbers z<sup>μ</sup> = x<sup>μ</sup> + i y<sup>μ</sup>, parallel universes naturally emerge as phase projections of one coherent metric g<sub>μν</sub>(z) geometry.")
     ]),
     
-    ("II. MATHEMATICAL FRAMEWORK OF COMPLEX SPACETIME METRIC g-FORMAT", [
+    ("II. MATHEMATICAL FRAMEWORK OF COMPLEX SPACETIME METRIC g<sub>μν</sub>(z) FORMAT", [
         ("TEXT", "We represent coordinates as complex quantities z<sup>μ</sup> = x<sup>μ</sup> + i y<sup>μ</sup> in ℂ<sup>4</sup>, where x<sup>μ</sup> represents observable physical dimensions and y<sup>μ</sup> represents internal imaginary dimensions."),
-        ("TEXT", "The complex spacetime metric tensor is expressed in metric g-format as a Hermitian tensor:"),
+        ("TEXT", "The complex spacetime metric tensor is expressed in metric g<sub>μν</sub>(z) format as a Hermitian tensor:"),
         ("FORMULA", "g<sub>μν</sub>(z) = Re(g<sub>μν</sub>(z)) + i Im(g<sub>μν</sub>(z))", "(2)"),
-        ("TEXT", "where metric Hermiticity requires g<sub>μν</sub> = ḡ<sub>νμ</sub>. The complex line element in metric g-format is:"),
+        ("TEXT", "where metric Hermiticity requires g<sub>μν</sub> = ḡ<sub>νμ</sub>. The complex line element in metric g<sub>μν</sub>(z) format is:"),
         ("FORMULA", "ds<sup>2</sup> = g<sub>μν</sub>(z) dz<sup>μ</sup> dz̄<sup>ν</sup>", "(3)"),
         ("TEXT", "The metric determinant g = det(g<sub>μν</sub>) defines the complex spacetime invariant volume element √(-g) d<sup>4</sup>z. The extended Christoffel symbols Γ<sup>λ</sup><sub>μν</sub>(g) govern affine connections:"),
         ("FORMULA", "Γ<sup>λ</sup><sub>μν</sub>(g) = ½ g<sup>λσ</sup> [ (∂g<sub>σν</sub> / ∂z<sup>μ</sup>) + (∂g<sub>μσ</sub> / ∂z<sup>ν</sup>) - (∂g<sub>μν</sub> / ∂z<sup>σ</sup>) ]", "(4)"),
@@ -54,23 +54,23 @@ SECTIONS = [
         ("FORMULA", "R<sub>μν</sub>(g) = ∂<sub>λ</sub> Γ<sup>λ</sup><sub>μν</sub>(g) - ∂<sub>ν</sub> Γ<sup>λ</sup><sub>μλ</sub>(g) + Γ<sup>λ</sup><sub>σλ</sub>(g) Γ<sup>σ</sup><sub>μν</sub>(g) - Γ<sup>λ</sup><sub>σν</sub>(g) Γ<sup>σ</sup><sub>μλ</sub>(g)", "(5)")
     ]),
     
-    ("III. IMAGINARY EINSTEIN FIELD EQUATIONS IN METRIC g-FORMAT", [
-        ("TEXT", "Extending real partial derivatives to complex exterior derivatives gives the Imaginary Einstein Field Equations in metric g-format:"),
+    ("III. IMAGINARY EINSTEIN FIELD EQUATIONS IN METRIC g<sub>μν</sub>(z) FORMAT", [
+        ("TEXT", "Extending real partial derivatives to complex exterior derivatives gives the Imaginary Einstein Field Equations in metric g<sub>μν</sub>(z) format:"),
         ("FORMULA", "R<sub>μν</sub>(g) - ½ g<sub>μν</sub> R(g) + Λ g<sub>μν</sub> = (8πG / c<sup>4</sup>) T<sub>μν</sub>(g, z)", "(6)"),
-        ("TEXT", "Smoothing Horizon Singularities in Metric g<sub>00</sub> Format:"),
+        ("TEXT", "Smoothing Horizon Singularities in Metric g<sub>00</sub>(r + iε) Format:"),
         ("TEXT", "In a standard Schwarzschild metric, the temporal metric component g<sub>00</sub> = -(1 - r<sub>s</sub>/r) diverges as r approaches zero. Under complex coordinate extension r → r + i ε (where ε is set to the Planck length ℓ<sub>P</sub> = √(ħG / c<sup>3</sup>)):"),
         ("FORMULA", "g<sub>00</sub>(r + i ε) = - ( 1 - (r<sub>s</sub>r / (r<sup>2</sup> + ε<sup>2</sup>)) ) - i ( r<sub>s</sub>ε / (r<sup>2</sup> + ε<sup>2</sup>) )", "(7)"),
         ("TEXT", "As r approaches zero, the absolute magnitude of the metric component g<sub>00</sub> remains strictly bounded:"),
         ("FORMULA", "lim<sub>r→0</sub> |g<sub>00</sub>(i ε)| = √( 1 + (r<sub>s</sub><sup>2</sup> / ε<sup>2</sup>) ) < ∞", "(8)"),
-        ("TEXT", "This proves that complex metric g-format extensions remove physical singularities, keeping curvature scalar R(g) finite everywhere.")
+        ("TEXT", "This proves that complex metric g<sub>μν</sub>(z) extensions remove physical singularities, keeping curvature scalar R(g) finite everywhere.")
     ]),
     
-    ("IV. MULTIVERSE PHASE PROJECTION IN METRIC g-FORMAT", [
-        ("TEXT", "To describe observable universes from the complex continuum, we define the quantum phase projection operator P̂<sub>θ</sub> acting on metric g<sub>μν</sub>:"),
+    ("IV. MULTIVERSE PHASE PROJECTION IN METRIC g<sub>μν</sub>(z) FORMAT", [
+        ("TEXT", "To describe observable universes from the complex continuum, we define the quantum phase projection operator P̂<sub>θ</sub> acting on metric g<sub>μν</sub>(z):"),
         ("FORMULA", "P̂<sub>θ</sub> [ g<sub>μν</sub>(z) ] = ∫<sub>0</sub><sup>2π</sup> δ(θ - arg(z)) g<sub>μν</sub>(z) dθ", "(9)"),
         ("TEXT", "An individual observable universe U<sub>θ</sub> corresponds to a specific metric phase angle θ in [0, 2π):"),
         ("FORMULA", "g<sub>μν</sub><sup>(θ)</sup>(x) = Re( g<sub>μν</sub>(x e<sup>iθ</sup>) )", "(10)"),
-        ("TEXT", "Thus, different cosmic phases belong to one unified metric g<sub>μν</sub> geometry rather than disjoint regions of space.")
+        ("TEXT", "Thus, different cosmic phases belong to one unified metric g<sub>μν</sub>(z) geometry rather than disjoint regions of space.")
     ]),
     
     ("V. COSMOLOGICAL IMPLICATIONS: DARK ENERGY IN METRIC Im(g<sub>0μ</sub>) FORMAT", [
@@ -85,7 +85,7 @@ SECTIONS = [
     ]),
     
     ("VII. CONCLUSION", [
-        ("TEXT", "We have presented a clear, unified mathematical model demonstrating that the multiverse can be understood as phase projections of a single four-dimensional complex spacetime metric g<sub>μν</sub>. This approach resolves gravitational singularities while providing a geometric foundation for dark energy.")
+        ("TEXT", "We have presented a clear, unified mathematical model demonstrating that the multiverse can be understood as phase projections of a single four-dimensional complex spacetime metric g<sub>μν</sub>(z). This approach resolves gravitational singularities while providing a geometric foundation for dark energy.")
     ])
 ]
 
@@ -98,7 +98,7 @@ REFERENCES = [
 ]
 
 def generate_pdf(filename="paper.pdf"):
-    print(f"Generating PDF in Metric g-Format: {filename}...")
+    print(f"Generating PDF with Explicit g_mu_nu(z) Format: {filename}...")
     doc = SimpleDocTemplate(filename, pagesize=letter, leftMargin=54, rightMargin=54, topMargin=54, bottomMargin=54)
     styles = getSampleStyleSheet()
 
@@ -188,7 +188,7 @@ def generate_pdf(filename="paper.pdf"):
         for item_type, text, *opt_label in [item if len(item)==3 else (item[0], item[1], "") for item in items]:
             if item_type == "FORMULA":
                 label = opt_label[0] if opt_label else ""
-                formatted_formula = f"{text}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{label}</b>"
+                formatted_formula = f"<i><b>g</b></i> : {text}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{label}</b>"
                 story.append(Paragraph(formatted_formula, formula_style))
             else:
                 story.append(Paragraph(text, body_style))
@@ -200,10 +200,10 @@ def generate_pdf(filename="paper.pdf"):
         story.append(Paragraph(ref, body_style))
 
     doc.build(story)
-    print(f"[*] PDF created successfully in Metric g-Format: {filename}")
+    print(f"[*] PDF created successfully with Explicit g_mu_nu(z) Format: {filename}")
 
 def generate_docx(filename="paper.docx"):
-    print(f"Generating DOCX in Metric g-Format: {filename}...")
+    print(f"Generating DOCX with Explicit g_mu_nu(z) Format: {filename}...")
     doc = Document()
 
     for section in doc.sections:
@@ -271,7 +271,7 @@ def generate_docx(filename="paper.docx"):
             if item_type == "FORMULA":
                 p_b.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 clean_text = text.replace('<i>', '').replace('</i>', '').replace('<sub>', '').replace('</sub>', '').replace('<sup>', '').replace('</sup>', '').replace('&nbsp;', ' ')
-                r_b = p_b.add_run(f"{clean_text}        {label}")
+                r_b = p_b.add_run(f"g : {clean_text}        {label}")
                 r_b.italic = True
                 r_b.font.size = Pt(11)
                 r_b.font.name = 'Times New Roman'
@@ -297,7 +297,7 @@ def generate_docx(filename="paper.docx"):
         r_r.font.name = 'Arial'
 
     doc.save(filename)
-    print(f"[*] DOCX created successfully in Metric g-Format: {filename}")
+    print(f"[*] DOCX created successfully with Explicit g_mu_nu(z) Format: {filename}")
 
 if __name__ == "__main__":
     generate_pdf("paper.pdf")
