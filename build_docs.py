@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 Human-Authored IEEE Transactions Research Paper Generator
+Author: Samuel Hasiholan Omega, S. Tr. T.
 Title: Unification of Multiverse Topology into a Single Complex Manifold
-Format: Genuine IEEE Standard + Natural Human Language Academic Prose
+Format: IEEE Standard + Human Language Academic Prose by Samuel Hasiholan Omega, S. Tr. T.
 """
 
 import os
@@ -16,7 +17,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
 PAPER_TITLE = "Unification of Multiverse Topology into a Single Complex Manifold: Reformulation of Einstein's General Relativity via Imaginary Spacetime Dimensions and Complexized Energy-Momentum Tensors"
-AUTHORS = "BeruangLaut.ID Quantum Gravity Research Group, IEEE Senior Member"
+AUTHORS = "Samuel Hasiholan Omega, S. Tr. T.\nBeruangLaut.ID Quantum Gravity Research Group, IEEE Member"
 
 ABSTRACT_TEXT = (
     "In standard modern cosmology, the multiverse concept often relies on physically disconnected spacetime domains "
@@ -97,7 +98,7 @@ REFERENCES = [
 ]
 
 def generate_pdf(filename="paper.pdf"):
-    print(f"Generating Human Language IEEE PDF: {filename}...")
+    print(f"Generating PDF authored by Samuel Hasiholan Omega, S. Tr. T.: {filename}...")
     doc = SimpleDocTemplate(filename, pagesize=letter, leftMargin=54, rightMargin=54, topMargin=54, bottomMargin=54)
     styles = getSampleStyleSheet()
 
@@ -113,11 +114,11 @@ def generate_pdf(filename="paper.pdf"):
     author_style = ParagraphStyle(
         'PaperAuthor',
         parent=styles['Normal'],
-        fontName='Helvetica-Oblique',
-        fontSize=10,
-        leading=14,
+        fontName='Helvetica-Bold',
+        fontSize=10.5,
+        leading=15,
         alignment=1,
-        textColor=colors.HexColor('#34495E')
+        textColor=colors.HexColor('#003366')
     )
     heading_style = ParagraphStyle(
         'SectionHeading',
@@ -170,7 +171,7 @@ def generate_pdf(filename="paper.pdf"):
     story = []
     story.append(Paragraph(PAPER_TITLE, title_style))
     story.append(Spacer(1, 10))
-    story.append(Paragraph(AUTHORS, author_style))
+    story.append(Paragraph(AUTHORS.replace('\n', '<br/>'), author_style))
     story.append(Spacer(1, 12))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#003366'), spaceAfter=12))
 
@@ -197,10 +198,10 @@ def generate_pdf(filename="paper.pdf"):
         story.append(Paragraph(ref, body_style))
 
     doc.build(story)
-    print(f"[*] PDF created successfully in IEEE Human Language format: {filename}")
+    print(f"[*] PDF authored by Samuel Hasiholan Omega, S. Tr. T. created successfully: {filename}")
 
 def generate_docx(filename="paper.docx"):
-    print(f"Generating Human Language IEEE DOCX: {filename}...")
+    print(f"Generating DOCX authored by Samuel Hasiholan Omega, S. Tr. T.: {filename}...")
     doc = Document()
 
     for section in doc.sections:
@@ -222,10 +223,10 @@ def generate_docx(filename="paper.docx"):
     p_author = doc.add_paragraph()
     p_author.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run_author = p_author.add_run(AUTHORS)
-    run_author.italic = True
-    run_author.font.size = Pt(10)
+    run_author.bold = True
+    run_author.font.size = Pt(10.5)
     run_author.font.name = 'Arial'
-    run_author.font.color.rgb = RGBColor(52, 73, 94)
+    run_author.font.color.rgb = RGBColor(0, 51, 102)
 
     # Abstract
     p_abs_head = doc.add_paragraph()
@@ -286,7 +287,7 @@ def generate_docx(filename="paper.docx"):
         r_r.font.name = 'Arial'
 
     doc.save(filename)
-    print(f"[*] DOCX created successfully in IEEE Human Language format: {filename}")
+    print(f"[*] DOCX authored by Samuel Hasiholan Omega, S. Tr. T. created successfully: {filename}")
 
 if __name__ == "__main__":
     generate_pdf("paper.pdf")
