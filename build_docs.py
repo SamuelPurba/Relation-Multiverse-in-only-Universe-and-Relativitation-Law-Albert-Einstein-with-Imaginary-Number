@@ -2,6 +2,7 @@
 """
 Paper PDF and DOCX Generator for IEEE Scopus Q1 Research Paper
 Title: Unification of Multiverse Topology into a Single Complex Manifold
+Includes FULL Mathematical Formulas & Derivations from main.tex and README.md
 """
 
 import os
@@ -10,7 +11,7 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
@@ -32,39 +33,59 @@ ABSTRACT_TEXT = (
 KEYWORDS = "Complex General Relativity, Multiverse Unification, Imaginary Spacetime, Complex Manifolds, Dark Energy, Singularity Resolution."
 
 SECTIONS = [
-    ("I. INTRODUCTION", 
-     "Einstein's General Theory of Relativity (GR) describes spacetime as a 4-dimensional pseudo-Riemannian real manifold (M, g_{mu nu}). "
-     "While GR has achieved remarkable empirical validation, it suffers from spacetime singularities and an inability to incorporate quantum vacuum fluctuations naturally. "
-     "In this work, we extend spacetime into a 4-dimensional complex manifold M_C with Hermitian metric g_{mu nu} in C^{4x4}, proving that parallel universes are phase projections of a single continuous complex geometry."),
+    ("I. INTRODUCTION", [
+        "Einstein's General Theory of Relativity (GR) describes spacetime as a 4-dimensional pseudo-Riemannian real manifold (M, g_{mu nu}) governed by the field equations:",
+        "G_{mu nu} + Lambda g_{mu nu} = (8pi G / c^4) T_{mu nu}   (Eq. 1)",
+        "While GR has achieved remarkable empirical validation, it suffers from spacetime singularities (where curvature invariants diverge) and an inability to incorporate quantum vacuum fluctuations naturally.",
+        "In this work, we propose the Multiverse-in-Single-Universe paradigm. We extend spacetime into a 4-dimensional complex manifold M_C with Hermitian metric g_{mu nu} in C^{4x4}, proving that parallel universes are phase projections of a single continuous complex geometry."
+    ]),
     
-    ("II. MATHEMATICAL FRAMEWORK OF COMPLEX SPACETIME MANIFOLDS",
-     "Let z^mu = x^mu + i y^mu in C^4 represent complex spacetime coordinates. The complex metric tensor is defined as a Hermitian complex tensor: "
-     "g_{mu nu}(z) = Re(g_{mu nu}) + i Im(g_{mu nu}), satisfying g_{mu nu} = conjugate(g_{nu mu}). The line element is ds^2 = g_{mu nu}(z) dz^mu d(z_bar)^nu.\n\n"
-     "Complex Christoffel symbols Gamma^lambda_{mu nu} and Riemann curvature tensor R^lambda_{mu nu sigma} are derived via holomorphically extended connections."),
+    ("II. MATHEMATICAL FRAMEWORK OF COMPLEX SPACETIME MANIFOLDS", [
+        "Let z^mu = x^mu + i y^mu in C^4 represent complex spacetime coordinates, where x^mu denotes real observable spacetime coordinates and y^mu denotes imaginary internal spacetime coordinates.",
+        "The complex metric tensor is defined as a Hermitian complex tensor:",
+        "g_{mu nu}(z) = Re(g_{mu nu}(z)) + i Im(g_{mu nu}(z))   (Eq. 2)",
+        "satisfying metric Hermiticity: g_{mu nu} = conjugate(g_{nu mu}). The complex line element ds^2 is given by:",
+        "ds^2 = g_{mu nu}(z) dz^mu d(z_bar)^nu   (Eq. 3)",
+        "Complex Christoffel symbols Gamma^lambda_{mu nu} are derived via holomorphically extended connections:",
+        "Gamma^lambda_{mu nu}(z) = (1/2) g^{lambda sigma} [ (d g_{sigma nu} / d z^mu) + (d g_{mu sigma} / d z^nu) - (d g_{mu nu} / d z^sigma) ]   (Eq. 4)",
+        "The complex Riemann curvature tensor R^lambda_{mu nu sigma} is formulated as:",
+        "R^lambda_{mu nu sigma} = (d Gamma^lambda_{mu sigma} / d z^nu) - (d Gamma^lambda_{mu nu} / d z^sigma) + Gamma^lambda_{kappa nu} Gamma^kappa_{mu sigma} - Gamma^lambda_{kappa sigma} Gamma^kappa_{mu nu}   (Eq. 5)"
+    ]),
     
-    ("III. IMAGINARY EINSTEIN FIELD EQUATIONS & SINGULARITY RESOLUTION",
-     "The Imaginary Einstein Field Equations (IEFE) are expressed as:\n"
-     "G_{mu nu}(z) + Lambda g_{mu nu}(z) = (8pi G / c^4) T_{mu nu}(z)\n\n"
-     "Under complex coordinate extension r -> r + i epsilon (where epsilon = Planck length l_P):\n"
-     "g_00(r + i epsilon) = - (1 - (r_s r / (r^2 + epsilon^2))) - i (r_s epsilon / (r^2 + epsilon^2)).\n"
-     "As r -> 0, |g_00(i epsilon)| remains finite (< infinity). The physical singularity at r=0 is resolved into a smooth, non-singular complex manifold."),
+    ("III. IMAGINARY EINSTEIN FIELD EQUATIONS & SINGULARITY RESOLUTION", [
+        "Replacing real partial derivatives with complex exterior derivatives on M_C yields the Imaginary Einstein Field Equations (IEFE):",
+        "G_{mu nu}(z) + Lambda g_{mu nu}(z) = (8pi G / c^4) T_{mu nu}(z),   where z^mu = x^mu + i y^mu   (Eq. 6)",
+        "Singularity Resolution via Complex Horizon Extension:",
+        "For a Schwarzschild metric with mass M, standard real metric component g_00 = -(1 - r_s/r) exhibits a singularity at r=0 and coordinate horizon at r = r_s = 2GM/c^2.",
+        "Under complex coordinate extension r -> r + i epsilon (where epsilon = Planck length l_P = sqrt(hbar G / c^3)):",
+        "g_00(r + i epsilon) = - (1 - (r_s / (r + i epsilon))) = - (1 - (r_s r / (r^2 + epsilon^2))) - i (r_s epsilon / (r^2 + epsilon^2))   (Eq. 7)",
+        "As r -> 0, the absolute magnitude remains strictly bounded:",
+        "lim_{r -> 0} |g_00(i epsilon)| = sqrt( 1 + (r_s^2 / epsilon^2) ) < infinity   (Eq. 8)",
+        "Theorem 1 (Horizon Smoothness): Complex coordinate extension removes all curvature scalar singularities (Kretschmann invariant K = R^{alpha beta gamma delta} R_{alpha beta gamma delta} < infinity), rendering event horizons smooth and geodesic-complete."
+    ]),
     
-    ("IV. MULTIVERSE PHASE PROJECTION OPERATOR",
-     "We define the Quantum Measurement Phase Projection Operator P_theta acting on the complex manifold state |Psi_{M_C}>:\n"
-     "P_theta = integral_0^{2pi} delta(theta - arg(z)) d theta.\n"
-     "Every observable universe U_theta corresponds to a slice at phase angle theta: g_{mu nu}^{(theta)}(x) = Re(g_{mu nu}(x e^{i theta}))."),
+    ("IV. MULTIVERSE PHASE PROJECTION OPERATOR", [
+        "We define the Quantum Measurement Phase Projection Operator P_theta acting on the complex manifold state |Psi_{M_C}>:",
+        "P_theta = integral_0^{2pi} delta(theta - arg(z)) d theta   (Eq. 9)",
+        "Every observable universe U_theta corresponds to a slice at phase angle theta in [0, 2pi):",
+        "g_{mu nu}^{(theta)}(x) = Re( g_{mu nu}(x e^{i theta}) )   (Eq. 10)",
+        "Thus, the infinite multiverse continuum is mathematically contained within a single complex geometry M_C."
+    ]),
     
-    ("V. COSMOLOGICAL IMPLICATIONS: DARK ENERGY & DARK MATTER",
-     "Taking the trace of the imaginary metric tensor Im(g_{mu nu}) reveals an intrinsic vacuum stress-energy density:\n"
-     "rho_{vacuum} = (c^4 / 8pi G) nabla^mu Im(g_{0 mu}).\n"
-     "This term generates an accelerating cosmological expansion identical to the cosmological constant Lambda = 3 H_0^2 Omega_Lambda."),
+    ("V. COSMOLOGICAL IMPLICATIONS: DARK ENERGY & DARK MATTER", [
+        "Taking the trace of the imaginary metric tensor Im(g_{mu nu}) reveals an intrinsic vacuum stress-energy density:",
+        "rho_{vacuum} = (c^4 / 8pi G) nabla^mu Im(g_{0 mu}) = rho_{dark energy}   (Eq. 11)",
+        "This term generates an accelerating cosmological expansion identical to the cosmological constant Lambda = 3 H_0^2 Omega_Lambda, proving that Dark Energy is the observable vacuum coupling of orthogonal imaginary multiverse dimensions."
+    ]),
     
-    ("VI. EMPIRICAL PREDICTIONS & EXPERIMENTAL VERIFICATION",
-     "1. Gravitational Wave Phase Shifts: Advanced LIGO/VIRGO/LISA detectors should observe a residual imaginary phase shift delta phi ~ 10^{-21} rad in black hole ringdown modes.\n"
-     "2. Event Horizon Telescope Shadow Boundaries: Horizon-scale shadows display subtle complex interference patterns matching Im(g_{mu nu})."),
+    ("VI. EMPIRICAL PREDICTIONS & EXPERIMENTAL VERIFICATION", [
+        "1. Gravitational Wave Phase Shifts: Advanced LIGO/VIRGO/LISA detectors should observe a tiny imaginary phase shift delta phi ~ 10^{-21} rad in binary black hole merger ringdowns.",
+        "2. Event Horizon Telescope Shadow Boundaries: Horizon-scale shadows display subtle complex interference patterns matching Im(g_{mu nu})."
+    ]),
     
-    ("VII. CONCLUSION",
-     "We have established a unified mathematical framework demonstrating that parallel universes in multiverse theory are phase projections of a single 4D complex manifold governed by complex General Relativity. This resolves physical singularities and provides a geometric origin for Dark Energy.")
+    ("VII. CONCLUSION", [
+        "We have established a unified mathematical framework demonstrating that parallel universes in multiverse theory are phase projections of a single 4D complex manifold governed by complex General Relativity. This resolves physical singularities and provides a geometric origin for Dark Energy."
+    ])
 ]
 
 REFERENCES = [
@@ -84,9 +105,9 @@ def generate_pdf(filename="paper.pdf"):
         'PaperTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=16,
-        leading=20,
-        alignment=1, # Center
+        fontSize=15,
+        leading=19,
+        alignment=1,
         textColor=colors.HexColor('#1A2530')
     )
     author_style = ParagraphStyle(
@@ -114,8 +135,19 @@ def generate_pdf(filename="paper.pdf"):
         fontName='Helvetica',
         fontSize=9.5,
         leading=13.5,
-        alignment=4, # Justified
-        spaceAfter=8
+        alignment=4,
+        spaceAfter=6
+    )
+    formula_style = ParagraphStyle(
+        'FormulaStyle',
+        parent=styles['Normal'],
+        fontName='Courier-Bold',
+        fontSize=9,
+        leading=13,
+        alignment=1, # Centered formula box
+        textColor=colors.HexColor('#990000'),
+        spaceBefore=6,
+        spaceAfter=6
     )
     abstract_heading = ParagraphStyle(
         'AbstractHeading',
@@ -139,7 +171,7 @@ def generate_pdf(filename="paper.pdf"):
     story.append(Paragraph(PAPER_TITLE, title_style))
     story.append(Spacer(1, 10))
     story.append(Paragraph(AUTHORS, author_style))
-    story.append(Spacer(1, 14))
+    story.append(Spacer(1, 12))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#003366'), spaceAfter=12))
 
     # Abstract Box
@@ -147,13 +179,16 @@ def generate_pdf(filename="paper.pdf"):
     story.append(Spacer(1, 4))
     story.append(Paragraph(ABSTRACT_TEXT, abstract_body))
     story.append(Paragraph(f"<b>Keywords:</b> {KEYWORDS}", abstract_body))
-    story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#BDC3C7'), spaceAfter=14))
+    story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#BDC3C7'), spaceAfter=12))
 
-    # Sections
-    for title, text in SECTIONS:
+    # Sections & Formulas
+    for title, paragraphs in SECTIONS:
         story.append(Paragraph(title, heading_style))
-        for paragraph in text.split('\n\n'):
-            story.append(Paragraph(paragraph, body_style))
+        for p_text in paragraphs:
+            if "Eq." in p_text or "lim_" in p_text or "g_{" in p_text and "=" in p_text:
+                story.append(Paragraph(f"<b>{p_text}</b>", formula_style))
+            else:
+                story.append(Paragraph(p_text, body_style))
 
     # References
     story.append(Spacer(1, 10))
@@ -162,13 +197,12 @@ def generate_pdf(filename="paper.pdf"):
         story.append(Paragraph(ref, body_style))
 
     doc.build(story)
-    print(f"[*] PDF created successfully: {filename}")
+    print(f"[*] PDF created successfully with FULL FORMULAS: {filename}")
 
 def generate_docx(filename="paper.docx"):
     print(f"Generating DOCX: {filename}...")
     doc = Document()
 
-    # Set page margins
     for section in doc.sections:
         section.top_margin = Inches(1)
         section.bottom_margin = Inches(1)
@@ -180,7 +214,7 @@ def generate_docx(filename="paper.docx"):
     p_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run_title = p_title.add_run(PAPER_TITLE)
     run_title.bold = True
-    run_title.font.size = Pt(16)
+    run_title.font.size = Pt(15)
     run_title.font.name = 'Arial'
     run_title.font.color.rgb = RGBColor(26, 37, 48)
 
@@ -215,20 +249,28 @@ def generate_docx(filename="paper.docx"):
 
     doc.add_paragraph("-" * 45)
 
-    # Sections
-    for title, text in SECTIONS:
+    # Sections & Formulas
+    for title, paragraphs in SECTIONS:
         p_sec = doc.add_paragraph()
         r_sec = p_sec.add_run(title)
         r_sec.bold = True
         r_sec.font.size = Pt(12)
         r_sec.font.color.rgb = RGBColor(0, 51, 102)
 
-        for paragraph in text.split('\n\n'):
+        for p_text in paragraphs:
             p_b = doc.add_paragraph()
-            p_b.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-            r_b = p_b.add_run(paragraph)
-            r_b.font.size = Pt(10.5)
-            r_b.font.name = 'Arial'
+            if "Eq." in p_text or "lim_" in p_text or ("g_{" in p_text and "=" in p_text):
+                p_b.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                r_b = p_b.add_run(p_text)
+                r_b.bold = True
+                r_b.font.size = Pt(10)
+                r_b.font.name = 'Courier New'
+                r_b.font.color.rgb = RGBColor(153, 0, 0)
+            else:
+                p_b.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+                r_b = p_b.add_run(p_text)
+                r_b.font.size = Pt(10.5)
+                r_b.font.name = 'Arial'
 
     # References
     p_ref_h = doc.add_paragraph()
@@ -244,7 +286,7 @@ def generate_docx(filename="paper.docx"):
         r_r.font.name = 'Arial'
 
     doc.save(filename)
-    print(f"[*] DOCX created successfully: {filename}")
+    print(f"[*] DOCX created successfully with FULL FORMULAS: {filename}")
 
 if __name__ == "__main__":
     generate_pdf("paper.pdf")
