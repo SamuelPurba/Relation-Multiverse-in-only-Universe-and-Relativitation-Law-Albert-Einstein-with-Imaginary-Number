@@ -33,7 +33,7 @@ ABSTRACT_TEXT = (
     "Im(<i>g</i><sub>00</sub>) naturally gives rise to dark energy acceleration and galactic rotation anomalies without requiring artificial scalar fields."
 )
 
-KEYWORDS = "Complex General Relativity, Multiverse Unification, Imaginary Spacetime, Complex Metric g_{\\mu\\nu}(z), Dark Energy, Singularity Resolution, Samuel.A.I Engine."
+KEYWORDS = "Complex General Relativity, Multiverse Unification, Imaginary Spacetime, Complex Metric g_{\\mu\\nu}(z), Dark Energy, Singularity Resolution."
 
 SECTIONS = [
     ("I. INTRODUCTION", [

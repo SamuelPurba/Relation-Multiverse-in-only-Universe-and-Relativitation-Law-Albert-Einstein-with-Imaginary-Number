@@ -1,4 +1,4 @@
-# 🏆 SAMUEL.A.I - Relation Multiverse in Only Universe & Relativity Law with Imaginary Number: High-Precision Analytical Engine & Scopus Q1 Academic Framework
+# 🏆 Relation Multiverse in Only Universe & Relativity Law with Imaginary Number: High-Precision Analytical Engine & Scopus Q1 Academic Framework
 
 <p align="center">
   <img src="avatar_profile.png" alt="Samuel Hasiholan Omega Purba, S. Tr. T." width="160" style="border-radius: 50%; border: 4px solid #6366f1; box-shadow: 0 12px 35px rgba(99, 102, 241, 0.5);" />
@@ -43,7 +43,7 @@
 3. **Derivasi Murni Energi Gelap:** Kerapatan energi vakum kosmik diturunkan secara geometris murni dari komponen imajiner metrik tanpa parameter buatan (0% ad-hoc).
 4. **Prediksi Teruji Empiris:** Memprediksi pergeseran fase residual gelombang gravitasi tingkat presisi yang dapat diverifikasi oleh observatorium LIGO, VIRGO, dan LISA.
 
-**Kata Kunci (Scopus Index Terms):** *Complex General Relativity, Multiverse Unification, Metric Tensor g-Format, Imaginary Spacetime, Dark Energy Derivation, Singularity Resolution, Samuel.A.I Engine, Politeknik Negeri Batam*.
+**Kata Kunci (Scopus Index Terms):** *Complex General Relativity, Multiverse Unification, Metric Tensor g-Format, Imaginary Spacetime, Dark Energy Derivation, Singularity Resolution, Politeknik Negeri Batam*.
 
 ---
 
@@ -134,7 +134,7 @@ graph TD
 
 ```
 +-----------------------------------------------------------------------------------+
-|                        SAMUEL.A.I COMPUTATIONAL ENGINE                            |
+|                    HIGH-PRECISION ANALYTICAL COMPUTATIONAL ENGINE                 |
 |             Complex General Relativity & Multiverse Simulator (v4.0)             |
 +-----------------------------------------------------------------------------------+
                                           |
