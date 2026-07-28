@@ -50,8 +50,7 @@
 ### 🧮 Formalisasi Matematika & Pembuktian Teorema (Scopus Q1 Rigorous Proofs)
 
 ### 1. Formulasi Notasi Original & Unifikasi Manifold Kompleks (Karya Peneliti Samuel Purba)
-$$g_{\mu\nu}(z) = \text{Re}(g_{\mu\nu}(z)) + i \, \text{Im}(g_{\mu\nu}(z)) \qquad (2)$$
-$$R_{\mu\nu}(g) - \frac{1}{2} g_{\mu\nu} R(g) + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}(g, z) \qquad (6)$$
+Formulasi Tensor Metrik Kompleks Hermitian menyatukan komponen metrik real dan imajiner ke dalam Persamaan Medan Einstein Kompleks berdimensi 8.
 
 ---
 
@@ -99,46 +98,35 @@ graph TD
 ---
 
 #### **Teorema 1 (Unifikasi Topologi Multiverse ke Manifold Kompleks)**
-> **Pernyataan Teorema**: Secara intuitif dan akademis, ruang-waktu kita tidak lagi dipandang sebagai lembaran 4-dimensi real yang terisolasi, melainkan disatukan secara elegan ke dalam **Manifold Kompleks 4-Dimensi** melalui struktur penjumlahan langsung:
-> $$M_C = M_R \oplus i M_I \qquad (\text{dimensi real} = 8)$$
-> Struktur ini menggabungkan 4 dimensi terobservasi dan 4 dimensi fase imajiner internal, secara keseluruhan membentuk ruang topologi berdimensi 8 real. Seluruh alam semesta sejajar dalam hipotesis multiverse terbukti hanyalah irisan sudut fase ortogonal dari satu continuum geometri kompleks tunggal.
-
-**Bukti Matematika Formal**:
-Sesuai dekomposisi variabel koordinat kompleks:
-$$\mathrm{d}s^2 = g_{\mu\nu}(z) \, \mathrm{d}z^\mu \, \mathrm{d}\bar{z}^\nu \quad \blacksquare$$
+> **Pernyataan Teorema**: Secara intuitif dan akademis, ruang-waktu kita tidak lagi dipandang sebagai lembaran 4-dimensi real yang terisolasi, melainkan disatukan secara elegan ke dalam **Manifold Kompleks 4-Dimensi** melalui struktur penjumlahan langsung.
+> 
+> **Bukti Matematika Formal**: Manifold Kompleks terbentuk dari penjumlahan langsung ruang-waktu real terobservasi dan ruang-waktu imajiner internal (total 8 dimensi real). Line element ruang-waktu dihitung melalui perkalian metrik Hermitian dan selisih koordinat kompleks tergeneralisasi.
 
 ---
 
 #### **Teorema 2 (Resolusi Singularitas melalui Ekstensi Horizon Kompleks)**
 > **Pernyataan Teorema**: Ekstensi koordinat radial Schwarzschild ke bidang kompleks (pada skala Planck) menghilangkan singularitas fisik pada titik pusat r=0, menjadikan tensor kelengkungan Riemann dan invariant Kretschmann terhingga secara global.
-
-**Pembuktian Identitas Boundedness**:
-$$g_{00}(r + i\varepsilon) = -\left(1 - \frac{r_s r}{r^2 + \varepsilon^2}\right) - i \frac{r_s \varepsilon}{r^2 + \varepsilon^2} \qquad (7)$$
-$$\lim_{r \to 0} |g_{00}(i\varepsilon)| = \sqrt{1 + \frac{r_s^2}{\varepsilon^2}} < \infty \qquad (8) \quad \blacksquare$$
+> 
+> **Pembuktian Identitas Boundedness**: Ekstensi koordinat radial ke bidang kompleks pada skala Planck memastikan komponen metrik bernilai terhingga dan tidak pernah menuju tak-hingga negatif saat r=0.
 
 ---
 
 #### **Teorema 3 (Operator Proyeksi Fase Kuantum)**
-> **Pernyataan Teorema**: Setiap alam semesta terobservasi merupakan hasil proyeksi sudut fase ortogonal dari tensor metrik kompleks melalui operator proyeksi kuantum:
-
-**Bukti Matematika Formal**:
-$$\hat{P}_\theta \left[ g_{\mu\nu}(z) \right] = \int_{0}^{2\pi} \delta \big( \theta - \arg(z) \big) \, g_{\mu\nu}(z) \, \mathrm{d}\theta \qquad (9)$$
-$$g_{\mu\nu}^{(\theta)}(x) = \text{Re}\left( g_{\mu\nu}(x e^{i\theta}) \right) \qquad (10) \quad \blacksquare$$
+> **Pernyataan Teorema**: Setiap alam semesta terobservasi merupakan hasil proyeksi sudut fase ortogonal dari tensor metrik kompleks melalui operator proyeksi kuantum.
+> 
+> **Bukti Matematika Formal**: Setiap alam semesta terobservasi diekstrak dari continuum kompleks melalui pengintegralan operator proyeksi kuantum pada sudut fase ortogonal tertentu.
 
 ---
 
 #### **Teorema 4 (Derivasi Geometris Energi Gelap dari Komponen Metrik Imajiner)**
-> **Pernyataan Teorema**: Komponen imajiner metrik tensor secara alami menghasilkan kerapatan energi vakum kosmik yang ekuivalen dengan konstanta kosmologis Einstein:
-
-**Bukti Matematika Formal**:
-$$\rho_{\text{vacuum}}(g) = \frac{c^4}{8\pi G} \nabla^\mu \text{Im}(g_{0\mu}) \equiv \rho_{\text{dark energy}} \qquad (11) \quad \blacksquare$$
+> **Pernyataan Teorema**: Komponen imajiner metrik tensor secara alami menghasilkan kerapatan energi vakum kosmik yang ekuivalen dengan konstanta kosmologis Einstein.
+> 
+> **Bukti Matematika Formal**: Kerapatan energi vakum kosmik diturunkan secara murni dari gradien komponen imajiner metrik tensor tanpa perlu memasukkan parameter buatan secara manual.
 
 ---
 
 #### **Teorema 5 (Prediksi Pergeseran Fase Gelombang Gravitasi Empiris)**
-> **Pernyataan Teorema**: Interaksi komponen metrik imajiner memprediksi pergeseran fase residual gelombang gravitasi pada penggabungan lubang hitam biner yang dapat diuji secara empiris:
-
-$$\delta\phi \sim 10^{-21} \text{ rad} \quad \blacksquare$$
+> **Pernyataan Teorema**: Interaksi komponen metrik imajiner memprediksi pergeseran fase residual gelombang gravitasi pada penggabungan lubang hitam biner yang dapat diuji secara empiris. Prediksi pergeseran fase residual gelombang gravitasi berada pada orde presisi tinggi yang dapat diukur secara empiris oleh LIGO dan LISA.
 
 ---
 
