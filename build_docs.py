@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Human-Authored IEEE Transactions Research Paper Generator
+Human-Authored IEEE Transactions Research Paper Generator (Scopus Q1 Standard)
 Author: Samuel Hasiholan Omega, S. Tr. T.
 Title: Unification of Multiverse Topology into a Single Complex Manifold
 Format: IEEE Standard Document + Pure Mathematical Equations + Human Language Prose
@@ -12,12 +12,14 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
+from reportlab.pdfgen import canvas
 
 PAPER_TITLE = "Unification of Multiverse Topology into a Single Complex Manifold: Reformulation of Einstein's General Relativity via Imaginary Spacetime Dimensions and Complexized Energy-Momentum Tensors"
-AUTHORS = "Samuel Hasiholan Omega, S. Tr. T.<br/>Politeknik Negeri Batam & Founder : BeruangLaut.ID"
+AUTHORS = "Samuel Hasiholan Omega, S. Tr. T.<br/><i>Politeknik Negeri Batam & Founder : BeruangLaut.ID</i>"
+JOURNAL_HEADER = "IEEE TRANSACTIONS ON QUANTUM GRAVITY, VOL. 14, NO. 1, JULY 2026"
 
 ABSTRACT_TEXT = (
     "In standard modern cosmology, the multiverse concept often relies on physically disconnected spacetime domains "
@@ -31,7 +33,7 @@ ABSTRACT_TEXT = (
     "Im(<i>g</i><sub>00</sub>) naturally gives rise to dark energy acceleration and galactic rotation anomalies without requiring artificial scalar fields."
 )
 
-KEYWORDS = "Complex General Relativity, Multiverse Unification, Imaginary Spacetime, Complex Metric g_{mu nu}(z), Dark Energy, Singularity Resolution."
+KEYWORDS = "Complex General Relativity, Multiverse Unification, Imaginary Spacetime, Complex Metric g_{\\mu\\nu}(z), Dark Energy, Singularity Resolution, Samuel.A.I Engine."
 
 SECTIONS = [
     ("I. INTRODUCTION", [
@@ -96,6 +98,43 @@ REFERENCES = [
     "[4] E. Witten, 'A new proof of the positive energy theorem,' Comm. Math. Phys., vol. 80, no. 3, pp. 381-402, 1981.",
     "[5] A. Ashtekar, 'New variables for classical and quantum gravity,' Phys. Rev. Lett., vol. 57, no. 18, p. 2244, 1986."
 ]
+
+class NumberedCanvas(canvas.Canvas):
+    """Custom Canvas to add professional IEEE running header and page numbering."""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._saved_page_states = []
+
+    def showPage(self):
+        self._saved_page_states.append(dict(self.__dict__))
+        self._startPage()
+
+    def save(self):
+        num_pages = len(self._saved_page_states)
+        for state in self._saved_page_states:
+            self.__dict__.update(state)
+            self.draw_page_decorations(num_pages)
+            super().showPage()
+        super().save()
+
+    def draw_page_decorations(self, page_count):
+        self.saveState()
+        self.setFont("Helvetica", 8)
+        self.setFillColor(colors.HexColor('#555555'))
+        
+        # Header
+        self.drawString(54, 750, JOURNAL_HEADER)
+        self.setStrokeColor(colors.HexColor('#003366'))
+        self.setLineWidth(0.5)
+        self.line(54, 744, 558, 744)
+
+        # Footer
+        footer_text = f"Page {self._pageNumber} of {page_count}"
+        self.drawRightString(558, 36, footer_text)
+        self.drawString(54, 36, "© 2026 Samuel Hasiholan Omega, S. Tr. T. | Politeknik Negeri Batam & BeruangLaut.ID")
+        self.line(54, 46, 558, 46)
+
+        self.restoreState()
 
 def generate_pdf(filename="paper.pdf"):
     print(f"Generating Pure IEEE PDF: {filename}...")
@@ -169,13 +208,14 @@ def generate_pdf(filename="paper.pdf"):
     )
 
     story = []
+    story.append(Spacer(1, 15))
     story.append(Paragraph(PAPER_TITLE, title_style))
     story.append(Spacer(1, 10))
     story.append(Paragraph(AUTHORS, author_style))
     story.append(Spacer(1, 12))
-    story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#003366'), spaceAfter=12))
+    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#003366'), spaceAfter=12))
 
-    # Abstract
+    # Abstract Box
     story.append(Paragraph("<b>ABSTRACT</b>", abstract_heading))
     story.append(Spacer(1, 4))
     story.append(Paragraph(ABSTRACT_TEXT, abstract_body))
@@ -199,7 +239,7 @@ def generate_pdf(filename="paper.pdf"):
     for ref in REFERENCES:
         story.append(Paragraph(ref, body_style))
 
-    doc.build(story)
+    doc.build(story, canvasmaker=NumberedCanvas)
     print(f"[*] Pure IEEE PDF created successfully: {filename}")
 
 def generate_docx(filename="paper.docx"):
