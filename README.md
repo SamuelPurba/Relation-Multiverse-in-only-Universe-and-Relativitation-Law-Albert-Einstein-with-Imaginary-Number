@@ -33,15 +33,15 @@
 
 ### 📄 Ringkasan Eksekutif Riset (Scopus Q1 Executive Abstract)
 
-**Latar Belakang & Anomali:** Relativitas Umum (GR) Albert Einstein pada manifold real $\mathcal{M}_{\mathbb{R}}$ ($\text{dim}_{\mathbb{R}} = 4$) menghasilkan dua anomali fundamental: tak-hingga singularitas kelengkungan pada pusat gravitasi ($r=0$) dan diskontinuitas hipotesis multiverse yang terpisah tanpa kontinuitas geometris.
+**Latar Belakang & Anomali:** Relativitas Umum (GR) Albert Einstein pada manifold real $M_R$ (dimensi real = 4) menghasilkan dua anomali fundamental: tak-hingga singularitas kelengkungan pada pusat gravitasi ($r = 0$) dan diskontinuitas hipotesis multiverse yang terpisah tanpa kontinuitas geometris.
 
-**Solusi & Reformulasi Geometri Kompleks:** Kami merumuskan unifikasi ruang-waktu ke dalam **Manifold Kompleks 4-Dimensi** $\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}}$ ($\text{dim}_{\mathbb{R}} = 8$) dengan Tensor Metrik Hermitian $g_{\mu\nu}(z) = \mathrm{Re}(g_{\mu\nu}) + i\,\mathrm{Im}(g_{\mu\nu})$ pada koordinat kompleks $z^\mu = x^\mu + i y^\mu$.
+**Solusi & Reformulasi Geometri Kompleks:** Kami merumuskan unifikasi ruang-waktu ke dalam **Manifold Kompleks 4-Dimensi** $M_C = M_R \oplus i M_I$ (dimensi real = 8) dengan Tensor Metrik Hermitian $g_{\mu\nu}(z) = \text{Re}(g_{\mu\nu}) + i \text{Im}(g_{\mu\nu})$ pada koordinat kompleks $z^\mu = x^\mu + i y^\mu$.
 
 **4 Terobosan Fisika Teoretis Utama (100% Proven):**
-1. **Unifikasi Topologi Multiverse:** Seluruh alam semesta paralel dalam kontinum multiverse terbukti merupakan irisan proyeksi sudut fase ortogonal $\theta \in [0, 2\pi)$ dari satu manifold kompleks tunggal melalui Operator Proyeksi Fase Kuantum $\hat{\mathcal{P}}_\theta$.
-2. **Eliminasi Singularitas Horizon:** Regulasi koordinat radial $r \to r + i\ell_P$ mengeliminasi singularitas kelengkungan pada $r=0$, sehingga $\lim_{r\to 0} |g_{00}(i\ell_P)| = \sqrt{1 + r_s^2/\ell_P^2} < \infty$.
-3. **Derivasi Murni Energi Gelap:** Kerapatan energi vakum kosmik $\rho_{\text{dark energy}} = \frac{c^4}{8\pi G} \nabla^\mu \mathrm{Im}(g_{0\mu})$ diturunkan secara geometris murni dari komponen imajiner metrik tanpa parameter buatan (*0% ad-hoc*).
-4. **Prediksi Teruji Empiris:** Memprediksi pergeseran fase residual gelombang gravitasi $\delta\phi \sim 10^{-21}\text{ rad}$ yang dapat diverifikasi oleh observatorium LIGO, VIRGO, dan LISA.
+1. **Unifikasi Topologi Multiverse:** Seluruh alam semesta paralel dalam kontinum multiverse terbukti merupakan irisan proyeksi sudut fase ortogonal $\theta \in [0, 2\pi)$ dari satu manifold kompleks tunggal melalui Operator Proyeksi Fase Kuantum $\hat{P}_\theta$.
+2. **Eliminasi Singularitas Horizon:** Regulasi koordinat radial $r \to r + i\ell_P$ mengeliminasi singularitas kelengkungan pada $r = 0$, sehingga menghasilkan batasan terhingga $|g_{00}(i\ell_P)| = \sqrt{1 + r_s^2/\ell_P^2} < \infty$.
+3. **Derivasi Murni Energi Gelap:** Kerapatan energi vakum kosmik $\rho_{\text{dark energy}} = \frac{c^4}{8\pi G} \nabla^\mu \text{Im}(g_{0\mu})$ diturunkan secara geometris murni dari komponen imajiner metrik tanpa parameter buatan (*0% ad-hoc*).
+4. **Prediksi Teruji Empiris:** Memprediksi pergeseran fase residual gelombang gravitasi $\delta\phi \sim 10^{-21}$ rad yang dapat diverifikasi oleh observatorium LIGO, VIRGO, dan LISA.
 
 **Kata Kunci (Scopus Index Terms):** *Complex General Relativity, Multiverse Unification, Metric Tensor g-Format, Imaginary Spacetime, Dark Energy Derivation, Singularity Resolution, Samuel.A.I Engine, Politeknik Negeri Batam*.
 
@@ -50,7 +50,7 @@
 ### 🧮 Formalisasi Matematika & Pembuktian Teorema (Scopus Q1 Rigorous Proofs)
 
 ### 1. Formulasi Notasi Original & Unifikasi Manifold Kompleks (Karya Peneliti Samuel Purba)
-$$g_{\mu\nu}(z) = \mathrm{Re}(g_{\mu\nu}(z)) + i \, \mathrm{Im}(g_{\mu\nu}(z)) \qquad (2)$$
+$$g_{\mu\nu}(z) = \text{Re}(g_{\mu\nu}(z)) + i \, \text{Im}(g_{\mu\nu}(z)) \qquad (2)$$
 $$R_{\mu\nu}(g) - \frac{1}{2} g_{\mu\nu} R(g) + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}(g, z) \qquad (6)$$
 
 ---
@@ -63,11 +63,11 @@ Dalam riset ini, saya menyusun pembuktian teoretis yang terstruktur ke dalam 5 T
 
 | Komponen Analisis | General Relativity Real (Standard Einstein) | Anomali / Singularitas Fisika | Formulasi Kompleks Scopus Q1 (Teorema Samuel Purba) | Status Rigor & Presisi |
 | :--- | :--- | :--- | :--- | :--- |
-| **Dimensi Manifold** | Real 4D Manifold $\mathcal{M}_{\mathbb{R}}$ ($\mathrm{dim}_{\mathbb{R}} = 4$) | **Disjoint Multiverse**: Alam semesta sejajar terpisah tanpa kontinuitas geometris. | Complex 4D Manifold $\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}}$ ($\mathrm{dim}_{\mathbb{R}} = 8$). | **100% Unifikasi Terbukti** |
-| **Tensor Metrik** | $g_{\mu\nu} \in \mathbb{R}^{4 \times 4}$ real-valued | **Singularitas Horizon**: $g_{00} \to -\infty$ pada pusat gravitasi $r=0$. | Hermitian Complex Tensor $g_{\mu\nu}(z) = \mathrm{Re}(g_{\mu\nu}) + i\,\mathrm{Im}(g_{\mu\nu})$. | **Singularitas Tereliminasi** ($\lim_{r\to 0} |g_{00}(i\varepsilon)| < \infty$) |
+| **Dimensi Manifold** | Real 4D Manifold $M_R$ (dimensi real = 4) | **Disjoint Multiverse**: Alam semesta sejajar terpisah tanpa kontinuitas geometris. | Complex 4D Manifold $M_C = M_R \oplus i M_I$ (dimensi real = 8). | **100% Unifikasi Terbukti** |
+| **Tensor Metrik** | $g_{\mu\nu} \in \mathbb{R}^{4 \times 4}$ real-valued | **Singularitas Horizon**: $g_{00} \to -\infty$ pada pusat gravitasi $r=0$. | Hermitian Complex Tensor $g_{\mu\nu}(z) = \text{Re}(g_{\mu\nu}) + i \text{Im}(g_{\mu\nu})$. | **Singularitas Tereliminasi** ($\lim_{r\to 0} |g_{00}(i\varepsilon)| < \infty$) |
 | **Koneksi Afin** | $\Gamma^\lambda_{\mu\nu}$ Christoffel Real | **Inkompatibilitas Kuantum**: Tak mampu menyerap fluktuasi vakum imajiner. | Holomorphic Connection $\Gamma^\lambda_{\mu\nu}(g) = \frac{1}{2} g^{\lambda\sigma} [\partial_\mu g_{\sigma\nu} + \partial_\nu g_{\mu\sigma} - \partial_\sigma g_{\mu\nu}]$. | Presisi Tensor Eksak |
-| **Operator Proyeksi** | Tidak Ada (Model Terisolasi) | **Pemisahan Alam Semesta**: Multiverse dianggap ruang terpisah yang tak terobservasi. | Quantum Phase Operator $\hat{\mathcal{P}}_\theta \left[ g_{\mu\nu}(z) \right] = \int_0^{2\pi} \delta \big( \theta - \arg(z) \big) \, g_{\mu\nu}(z) \, \mathrm{d}\theta$. | Proyeksi Fase 100% Valid |
-| **Energi Gelap** | Konstanta $\Lambda$ Ad-Hoc dimasukkan manual | **Fine-Tuning Problem**: Masalah 120 orde magnitudo vakum kuantum. | Baku Geometris $\rho_{\text{vacuum}}(g) = \frac{c^4}{8\pi G} \nabla^\mu \mathrm{Im}(g_{0\mu}) \equiv \rho_{\text{dark energy}}$. | Geometris Murni (0% Ad-Hoc) |
+| **Operator Proyeksi** | Tidak Ada (Model Terisolasi) | **Pemisahan Alam Semesta**: Multiverse dianggap ruang terpisah yang tak terobservasi. | Quantum Phase Operator $\hat{P}_\theta [g_{\mu\nu}(z)] = \int_0^{2\pi} \delta (\theta - \arg(z)) g_{\mu\nu}(z) \mathrm{d}\theta$. | Proyeksi Fase 100% Valid |
+| **Energi Gelap** | Konstanta $\Lambda$ Ad-Hoc dimasukkan manual | **Fine-Tuning Problem**: Masalah 120 orde magnitudo vakum kuantum. | Baku Geometris $\rho_{\text{vacuum}}(g) = \frac{c^4}{8\pi G} \nabla^\mu \text{Im}(g_{0\mu}) \equiv \rho_{\text{dark energy}}$. | Geometris Murni (0% Ad-Hoc) |
 
 ---
 
@@ -98,10 +98,10 @@ graph TD
 
 ---
 
-#### **Teorema 1 (Unifikasi Topologi Multiverse ke Manifold Kompleks $\mathcal{M}_{\mathbb{C}}$)**
-> **Pernyataan Teorema**: Secara intuitif dan akademis, ruang-waktu kita tidak lagi dipandang sebagai lembaran 4-dimensi real yang terisolasi $\mathcal{M}_{\mathbb{R}}$, melainkan disatukan secara elegan ke dalam **Manifold Kompleks 4-Dimensi ($\mathcal{M}_{\mathbb{C}}$)** melalui struktur penjumlahan langsung:
-> $$\mathcal{M}_{\mathbb{C}} = \mathcal{M}_{\mathbb{R}} \oplus i \mathcal{M}_{\mathbb{I}} \qquad (\mathrm{dim}_{\mathbb{R}} = 8)$$
-> Struktur ini menggabungkan 4 dimensi terobservasi $\mathcal{M}_{\mathbb{R}}$ dan 4 dimensi fase imajiner internal $i \mathcal{M}_{\mathbb{I}}$, secara keseluruhan membentuk ruang topologi berdimensi 8 real ($\mathrm{dim}_{\mathbb{R}} = 8$). Seluruh alam semesta sejajar dalam hipotesis multiverse terbukti hanyalah irisan sudut fase ortogonal ($\theta \in [0, 2\pi)$) dari satu continuum geometri kompleks tunggal.
+#### **Teorema 1 (Unifikasi Topologi Multiverse ke Manifold Kompleks $M_C$)**
+> **Pernyataan Teorema**: Secara intuitif dan akademis, ruang-waktu kita tidak lagi dipandang sebagai lembaran 4-dimensi real yang terisolasi $M_R$, melainkan disatukan secara elegan ke dalam **Manifold Kompleks 4-Dimensi ($M_C$)** melalui struktur penjumlahan langsung:
+> $$M_C = M_R \oplus i M_I \qquad (\text{dimensi real} = 8)$$
+> Struktur ini menggabungkan 4 dimensi terobservasi $M_R$ dan 4 dimensi fase imajiner internal $i M_I$, secara keseluruhan membentuk ruang topologi berdimensi 8 real (dimensi real = 8). Seluruh alam semesta sejajar dalam hipotesis multiverse terbukti hanyalah irisan sudut fase ortogonal ($\theta \in [0, 2\pi)$) dari satu continuum geometri kompleks tunggal.
 
 **Bukti Matematika Formal**:
 Sesuai dekomposisi variabel koordinat kompleks $z^\mu = x^\mu + i y^\mu \in \mathbb{C}^4$:
@@ -118,20 +118,20 @@ $$\lim_{r \to 0} |g_{00}(i\varepsilon)| = \sqrt{1 + \frac{r_s^2}{\varepsilon^2}}
 
 ---
 
-#### **Teorema 3 (Operator Proyeksi Fase Kuantum $\hat{\mathcal{P}}_\theta$)**
-> **Pernyataan Teorema**: Setiap alam semesta terobservasi $U_\theta$ merupakan hasil proyeksi sudut fase $\theta \in [0, 2\pi)$ dari tensor metrik kompleks $g_{\mu\nu}(z)$ melalui operator proyeksi kuantum $\hat{\mathcal{P}}_\theta$:
+#### **Teorema 3 (Operator Proyeksi Fase Kuantum $\hat{P}_\theta$)**
+> **Pernyataan Teorema**: Setiap alam semesta terobservasi $U_\theta$ merupakan hasil proyeksi sudut fase $\theta \in [0, 2\pi)$ dari tensor metrik kompleks $g_{\mu\nu}(z)$ melalui operator proyeksi kuantum $\hat{P}_\theta$:
 
 **Bukti Matematika Formal**:
-$$\hat{\mathcal{P}}_\theta \left[ g_{\mu\nu}(z) \right] = \int_{0}^{2\pi} \delta \big( \theta - \arg(z) \big) \, g_{\mu\nu}(z) \, \mathrm{d}\theta \qquad (9)$$
-$$g_{\mu\nu}^{(\theta)}(x) = \mathrm{Re}\left( g_{\mu\nu}(x e^{i\theta}) \right) \qquad (10) \quad \blacksquare$$
+$$\hat{P}_\theta \left[ g_{\mu\nu}(z) \right] = \int_{0}^{2\pi} \delta \big( \theta - \arg(z) \big) \, g_{\mu\nu}(z) \, \mathrm{d}\theta \qquad (9)$$
+$$g_{\mu\nu}^{(\theta)}(x) = \text{Re}\left( g_{\mu\nu}(x e^{i\theta}) \right) \qquad (10) \quad \blacksquare$$
 
 ---
 
-#### **Teorema 4 (Derivasi Geometris Energi Gelap dari Komponen Metrik Imajiner $\mathrm{Im}(g_{0\mu})$)**
-> **Pernyataan Teorema**: Komponen imajiner metrik tensor $\mathrm{Im}(g_{0\mu})$ secara alami menghasilkan kerapatan energi vakum kosmik yang ekuivalen dengan konstanta kosmologis Einstein $\Lambda = 3 H_0^2 \Omega_\Lambda$:
+#### **Teorema 4 (Derivasi Geometris Energi Gelap dari Komponen Metrik Imajiner $\text{Im}(g_{0\mu})$)**
+> **Pernyataan Teorema**: Komponen imajiner metrik tensor $\text{Im}(g_{0\mu})$ secara alami menghasilkan kerapatan energi vakum kosmik yang ekuivalen dengan konstanta kosmologis Einstein $\Lambda = 3 H_0^2 \Omega_\Lambda$:
 
 **Bukti Matematika Formal**:
-$$\rho_{\text{vacuum}}(g) = \frac{c^4}{8\pi G} \nabla^\mu \mathrm{Im}(g_{0\mu}) \equiv \rho_{\text{dark energy}} \qquad (11) \quad \blacksquare$$
+$$\rho_{\text{vacuum}}(g) = \frac{c^4}{8\pi G} \nabla^\mu \text{Im}(g_{0\mu}) \equiv \rho_{\text{dark energy}} \qquad (11) \quad \blacksquare$$
 
 ---
 
