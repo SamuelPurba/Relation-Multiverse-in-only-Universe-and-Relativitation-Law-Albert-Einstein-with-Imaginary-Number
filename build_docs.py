@@ -3,7 +3,7 @@
 Human-Authored IEEE Transactions Research Paper Generator (Scopus Q1 Standard)
 Author: Samuel Hasiholan Omega, S. Tr. T.
 Title: Unification of Multiverse Topology into a Single Complex Manifold
-Format: IEEE Standard Document + Pure Mathematical Equations + Human Language Prose
+Format: IEEE Two-Column Standard Layout + Pure Mathematical Equations + Human Language Prose
 """
 
 import os
@@ -12,7 +12,7 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable, Table, TableStyle
+from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, FrameBreak, NextPageTemplate, Paragraph, Spacer, HRFlowable
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 from reportlab.pdfgen import canvas
@@ -100,7 +100,7 @@ REFERENCES = [
 ]
 
 class NumberedCanvas(canvas.Canvas):
-    """Custom Canvas to add professional IEEE running header and page numbering."""
+    """Custom Canvas for IEEE running header and page numbering."""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._saved_page_states = []
@@ -113,40 +113,58 @@ class NumberedCanvas(canvas.Canvas):
         num_pages = len(self._saved_page_states)
         for state in self._saved_page_states:
             self.__dict__.update(state)
-            self.draw_page_decorations(num_pages)
+            self.draw_decorations(num_pages)
             super().showPage()
         super().save()
 
-    def draw_page_decorations(self, page_count):
+    def draw_decorations(self, page_count):
         self.saveState()
-        self.setFont("Helvetica", 8)
-        self.setFillColor(colors.HexColor('#555555'))
+        self.setFont("Helvetica-Bold", 8)
+        self.setFillColor(colors.HexColor('#003366'))
         
         # Header
-        self.drawString(54, 750, JOURNAL_HEADER)
+        self.drawString(36, 756, JOURNAL_HEADER)
         self.setStrokeColor(colors.HexColor('#003366'))
-        self.setLineWidth(0.5)
-        self.line(54, 744, 558, 744)
+        self.setLineWidth(0.75)
+        self.line(36, 748, 576, 748)
 
         # Footer
-        footer_text = f"Page {self._pageNumber} of {page_count}"
-        self.drawRightString(558, 36, footer_text)
-        self.drawString(54, 36, "© 2026 Samuel Hasiholan Omega, S. Tr. T. | Politeknik Negeri Batam & BeruangLaut.ID")
-        self.line(54, 46, 558, 46)
+        self.setFont("Helvetica", 8)
+        self.setFillColor(colors.HexColor('#444444'))
+        self.drawString(36, 30, "© 2026 Samuel Hasiholan Omega, S. Tr. T. | Politeknik Negeri Batam & BeruangLaut.ID")
+        self.drawRightString(576, 30, f"Page {self._pageNumber} of {page_count}")
+        self.line(36, 40, 576, 40)
 
         self.restoreState()
 
 def generate_pdf(filename="paper.pdf"):
-    print(f"Generating Pure IEEE PDF: {filename}...")
-    doc = SimpleDocTemplate(filename, pagesize=letter, leftMargin=54, rightMargin=54, topMargin=54, bottomMargin=54)
+    print(f"Generating Pure Two-Column IEEE PDF: {filename}...")
+    doc = BaseDocTemplate(filename, pagesize=letter, leftMargin=36, rightMargin=36, topMargin=48, bottomMargin=48)
+    
+    # Frames for 2-column IEEE layout
+    # Width of letter is 612, margin 36 left/right -> 540 width available
+    # 2 columns of 258 pt with 24 pt gap
+    
+    header_frame = Frame(36, 520, 540, 220, id='header_frame', topPadding=0, bottomPadding=0, leftPadding=0, rightPadding=0)
+    col1_p1 = Frame(36, 48, 258, 460, id='col1_p1', topPadding=0, bottomPadding=0, leftPadding=0, rightPadding=0)
+    col2_p1 = Frame(318, 48, 258, 460, id='col2_p1', topPadding=0, bottomPadding=0, leftPadding=0, rightPadding=0)
+    
+    col1_full = Frame(36, 48, 258, 690, id='col1_full', topPadding=0, bottomPadding=0, leftPadding=0, rightPadding=0)
+    col2_full = Frame(318, 48, 258, 690, id='col2_full', topPadding=0, bottomPadding=0, leftPadding=0, rightPadding=0)
+    
+    first_page_template = PageTemplate(id='FirstPage', frames=[header_frame, col1_p1, col2_p1])
+    later_page_template = PageTemplate(id='LaterPages', frames=[col1_full, col2_full])
+    
+    doc.addPageTemplates([first_page_template, later_page_template])
+
     styles = getSampleStyleSheet()
 
     title_style = ParagraphStyle(
         'PaperTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=15,
-        leading=19,
+        fontSize=14,
+        leading=18,
         alignment=1,
         textColor=colors.HexColor('#1A2530')
     )
@@ -154,8 +172,8 @@ def generate_pdf(filename="paper.pdf"):
         'PaperAuthor',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=10.5,
-        leading=15,
+        fontSize=10,
+        leading=14,
         alignment=1,
         textColor=colors.HexColor('#003366')
     )
@@ -163,101 +181,105 @@ def generate_pdf(filename="paper.pdf"):
         'SectionHeading',
         parent=styles['Heading2'],
         fontName='Helvetica-Bold',
-        fontSize=11,
-        leading=15,
+        fontSize=10,
+        leading=14,
         textColor=colors.HexColor('#003366'),
-        spaceBefore=12,
-        spaceAfter=6
+        spaceBefore=10,
+        spaceAfter=4
     )
     body_style = ParagraphStyle(
         'BodyTextCustom',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=9.5,
-        leading=13.5,
+        fontSize=8.5,
+        leading=11.5,
         alignment=4,
-        spaceAfter=6
+        spaceAfter=5
     )
     formula_style = ParagraphStyle(
         'FormulaIEEE',
         parent=styles['Normal'],
         fontName='Times-Italic',
-        fontSize=10.5,
-        leading=15,
+        fontSize=9.5,
+        leading=13,
         alignment=1,
         textColor=colors.HexColor('#111111'),
-        spaceBefore=8,
-        spaceAfter=8
+        spaceBefore=6,
+        spaceAfter=6
     )
     abstract_heading = ParagraphStyle(
         'AbstractHeading',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=10,
-        leading=14,
+        fontSize=9.5,
+        leading=13,
         alignment=1
     )
     abstract_body = ParagraphStyle(
         'AbstractBody',
         parent=styles['Normal'],
         fontName='Helvetica-Oblique',
-        fontSize=8.5,
-        leading=12,
+        fontSize=8,
+        leading=11,
         alignment=4,
-        spaceAfter=10
+        spaceAfter=6
     )
 
     story = []
-    story.append(Spacer(1, 15))
+    
+    # --- HEADER FRAME CONTENT ---
     story.append(Paragraph(PAPER_TITLE, title_style))
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 6))
     story.append(Paragraph(AUTHORS, author_style))
-    story.append(Spacer(1, 12))
-    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#003366'), spaceAfter=12))
+    story.append(Spacer(1, 8))
+    story.append(HRFlowable(width="100%", thickness=1.2, color=colors.HexColor('#003366'), spaceAfter=8))
 
-    # Abstract Box
     story.append(Paragraph("<b>ABSTRACT</b>", abstract_heading))
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 3))
     story.append(Paragraph(ABSTRACT_TEXT, abstract_body))
     story.append(Paragraph(f"<b>Keywords:</b> {KEYWORDS}", abstract_body))
-    story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#BDC3C7'), spaceAfter=12))
+    story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#BDC3C7'), spaceAfter=8))
+    
+    # Move from Header Frame into 2-Column Body Frames!
+    story.append(FrameBreak())
+    story.append(NextPageTemplate('LaterPages'))
 
-    # Sections & Formulas
+    # --- BODY SECTIONS (TWO-COLUMN FLOW) ---
     for title, items in SECTIONS:
         story.append(Paragraph(title, heading_style))
         for item_type, text, *opt_label in [item if len(item)==3 else (item[0], item[1], "") for item in items]:
             if item_type == "FORMULA":
                 label = opt_label[0] if opt_label else ""
-                formatted_formula = f"{text}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{label}</b>"
+                formatted_formula = f"{text}&nbsp;&nbsp;&nbsp;&nbsp;<b>{label}</b>"
                 story.append(Paragraph(formatted_formula, formula_style))
             else:
                 story.append(Paragraph(text, body_style))
 
     # References
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
     story.append(Paragraph("REFERENCES", heading_style))
     for ref in REFERENCES:
         story.append(Paragraph(ref, body_style))
 
     doc.build(story, canvasmaker=NumberedCanvas)
-    print(f"[*] Pure IEEE PDF created successfully: {filename}")
+    print(f"[*] Pure Two-Column IEEE PDF created successfully: {filename}")
 
 def generate_docx(filename="paper.docx"):
     print(f"Generating Pure IEEE DOCX: {filename}...")
     doc = Document()
 
     for section in doc.sections:
-        section.top_margin = Inches(1)
-        section.bottom_margin = Inches(1)
-        section.left_margin = Inches(1)
-        section.right_margin = Inches(1)
+        section.top_margin = Inches(0.8)
+        section.bottom_margin = Inches(0.8)
+        section.left_margin = Inches(0.8)
+        section.right_margin = Inches(0.8)
 
     # Title
     p_title = doc.add_paragraph()
     p_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run_title = p_title.add_run(PAPER_TITLE)
     run_title.bold = True
-    run_title.font.size = Pt(15)
+    run_title.font.size = Pt(14)
     run_title.font.name = 'Arial'
     run_title.font.color.rgb = RGBColor(26, 37, 48)
 
@@ -267,7 +289,7 @@ def generate_docx(filename="paper.docx"):
     for line in AUTHORS.replace('<br/>', '\n').split('\n'):
         r_a = p_author.add_run(line + '\n')
         r_a.bold = True
-        r_a.font.size = Pt(10.5)
+        r_a.font.size = Pt(10)
         r_a.font.name = 'Arial'
         r_a.font.color.rgb = RGBColor(0, 51, 102)
 
@@ -276,30 +298,30 @@ def generate_docx(filename="paper.docx"):
     p_abs_head.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r_abs_head = p_abs_head.add_run("ABSTRACT")
     r_abs_head.bold = True
-    r_abs_head.font.size = Pt(11)
+    r_abs_head.font.size = Pt(10.5)
 
     p_abs_body = doc.add_paragraph()
     p_abs_body.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     clean_abstract = ABSTRACT_TEXT.replace('<i>', '').replace('</i>', '').replace('<sub>', '').replace('</sub>', '').replace('<sup>', '').replace('</sup>', '')
     r_abs_body = p_abs_body.add_run(clean_abstract)
     r_abs_body.italic = True
-    r_abs_body.font.size = Pt(9.5)
+    r_abs_body.font.size = Pt(9)
 
     p_kw = doc.add_paragraph()
     r_kw_h = p_kw.add_run("Keywords: ")
     r_kw_h.bold = True
     r_kw_b = p_kw.add_run(KEYWORDS)
     r_kw_b.italic = True
-    r_kw_b.font.size = Pt(9.5)
+    r_kw_b.font.size = Pt(9)
 
-    doc.add_paragraph("-" * 45)
+    doc.add_paragraph("-" * 50)
 
     # Sections & Formulas
     for title, items in SECTIONS:
         p_sec = doc.add_paragraph()
         r_sec = p_sec.add_run(title)
         r_sec.bold = True
-        r_sec.font.size = Pt(12)
+        r_sec.font.size = Pt(11)
         r_sec.font.color.rgb = RGBColor(0, 51, 102)
 
         for item in items:
@@ -313,27 +335,27 @@ def generate_docx(filename="paper.docx"):
                 clean_text = text.replace('<i>', '').replace('</i>', '').replace('<sub>', '').replace('</sub>', '').replace('<sup>', '').replace('</sup>', '').replace('&nbsp;', ' ')
                 r_b = p_b.add_run(f"{clean_text}        {label}")
                 r_b.italic = True
-                r_b.font.size = Pt(11)
+                r_b.font.size = Pt(10)
                 r_b.font.name = 'Times New Roman'
                 r_b.font.color.rgb = RGBColor(17, 17, 17)
             else:
                 p_b.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
                 clean_text = text.replace('<i>', '').replace('</i>', '').replace('<sub>', '').replace('</sub>', '').replace('<sup>', '').replace('</sup>', '')
                 r_b = p_b.add_run(clean_text)
-                r_b.font.size = Pt(10.5)
+                r_b.font.size = Pt(9.5)
                 r_b.font.name = 'Arial'
 
     # References
     p_ref_h = doc.add_paragraph()
     r_ref_h = p_ref_h.add_run("REFERENCES")
     r_ref_h.bold = True
-    r_ref_h.font.size = Pt(12)
+    r_ref_h.font.size = Pt(11)
     r_ref_h.font.color.rgb = RGBColor(0, 51, 102)
 
     for ref in REFERENCES:
         p_r = doc.add_paragraph()
         r_r = p_r.add_run(ref)
-        r_r.font.size = Pt(9.5)
+        r_r.font.size = Pt(9)
         r_r.font.name = 'Arial'
 
     doc.save(filename)
